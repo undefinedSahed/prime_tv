@@ -10,6 +10,10 @@ const config: NextConfig = {
         protocol: "https",
         hostname: "sgp1.digitaloceanspaces.com",
       },
+      {
+        protocol: "https",
+        hostname: "placehold.co",
+      }
     ],
   },
 };
