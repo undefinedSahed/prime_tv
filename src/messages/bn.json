@@ -22,8 +22,12 @@
     "createPassword": "পাসওয়ার্ড তৈরি করুন",
     "haveAcc": "অ্যাকাউন্ট আছে? লগ ইন করুন"
   },
-  "search":  {
+  "search": {
     "placeholder": "যা খুঁজতে চান..."
+  },
+
+  "shareMarket": {
+    "title": "শেয়ার বাজার"
   },
   "notFound": {
     "title": "উপস! মনে হচ্ছে এই পেজটা ছুটিতে গেছে!",

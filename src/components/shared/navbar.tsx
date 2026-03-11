@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { Command, Search } from "lucide-react";
+import { Search } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -29,7 +29,7 @@ export function Navbar() {
   console.log("Intl navigation links: ", t("home"));
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur">
+    <header className="sticky top-0 z-50 w-full border-b shadow-[1px_4px_18px_-10px_rgba(170, 121, 120, 1)] bg-background/95 backdrop-blur">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-6">
           <Link href="/" className="flex items-center gap-2">
