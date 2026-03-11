@@ -4,7 +4,6 @@ import React from "react";
 import { formatDistanceToNow } from "date-fns";
 import { Timer } from "lucide-react";
 import { bn } from "date-fns/locale";
-import _default from "next/dist/client/router";
 
 export default function MainArticle({
   mainArticles,
