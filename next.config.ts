@@ -4,7 +4,9 @@ import createNextIntlPlugin from "next-intl/plugin";
 const withNextIntl = createNextIntlPlugin();
 
 const config: NextConfig = {
-  // Config Exists Here
+  images: {
+    domains: ["sgp1.digitaloceanspaces.com"],
+  },
 };
 
 export default withNextIntl(config);
