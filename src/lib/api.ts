@@ -7,12 +7,12 @@ const api = axios.create({
   withCredentials: true,
 });
 
-export async function getAllNews() {
+export async function getAllcategories() {
   try {
-    const response = await api.get("/news");
+    const response = await api.get("/web/categories?page=1&limit=10");
     return response.data;
   } catch (error) {
-    console.error("Error fetching news:", error);
+    console.error("Error fetching categories:", error);
     throw error;
   }
 }
