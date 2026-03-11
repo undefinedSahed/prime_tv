@@ -25,7 +25,7 @@ export default function ShareMarket() {
       <div className="container">
         <div className="relative flex h-14 w-full items-center overflow-hidden border-y bg-white shadow-sm rounded-md">
           {/* Static Label (Z-index keeps it on top) */}
-          <div className="z-20 flex h-full items-center bg-[#eab308] px-4 font-semibold text-black/80 whitespace-nowrap shadow-[4px_0px_10px_rgba(0,0,0,0.1)] text-sm">
+          <div className="z-20 flex h-full items-center bg-primary px-4 font-semibold text-primary-foreground whitespace-nowrap shadow-[4px_0px_10px_rgba(0,0,0,0.1)] text-sm">
             {tShare("title")}
           </div>
 
