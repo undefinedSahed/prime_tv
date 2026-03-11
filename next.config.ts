@@ -5,7 +5,12 @@ const withNextIntl = createNextIntlPlugin();
 
 const config: NextConfig = {
   images: {
-    domains: ["sgp1.digitaloceanspaces.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "sgp1.digitaloceanspaces.com",
+      },
+    ],
   },
 };
 

@@ -4,6 +4,7 @@ import React from "react";
 import { formatDistanceToNow } from "date-fns";
 import { Timer } from "lucide-react";
 import { bn } from "date-fns/locale";
+import _default from "next/dist/client/router";
 
 export default function MainArticle({
   mainArticles,
@@ -34,7 +35,11 @@ export default function MainArticle({
             </h5>
           </div>
         </div>
-        <h2 className="lg:text-lg font-semibold">{firstArticle.title}</h2>
+        <h2 className="lg:text-xl font-semibold">{firstArticle.title}</h2>
+        <div
+          dangerouslySetInnerHTML={{ __html: firstArticle.details }}
+          className="line-clamp-2 text-sm font-normal text-muted-foreground"
+        />
       </div>
       <div className="col-span-2">
         <div className="flex flex-col gap-4">
@@ -66,6 +71,10 @@ export default function MainArticle({
                   </div>
                 </div>
                 <h2 className="lg:text-sm font-semibold">{article.title}</h2>
+                <div
+                  dangerouslySetInnerHTML={{ __html: article.details }}
+                  className="line-clamp-2 text-xs font-normal text-muted-foreground"
+                />
               </div>
             ))
           }

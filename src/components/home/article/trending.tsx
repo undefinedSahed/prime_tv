@@ -2,13 +2,13 @@
 
 import { TrendingUp } from "lucide-react";
 import { useTranslations } from "next-intl";
-import React, { useEffect } from "react";
-import { motion, useAnimationControls } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import Link from "next/link";
 
 export default function Trending() {
   const tArticle = useTranslations("article");
-  const controls = useAnimationControls();
+  const [isHovering, setIsHovering] = React.useState(false);
 
   const trendingData = [
     { id: 1, tag: "জামায়াত" },
@@ -25,16 +25,7 @@ export default function Trending() {
     { id: 12, tag: "ছাত্র আন্দোলন" },
   ];
 
-  useEffect(() => {
-    controls.start({
-      x: ["100%", "-100%"],
-      transition: {
-        repeat: Infinity,
-        duration: 10,
-        ease: "linear",
-      },
-    });
-  }, [controls]);
+  const duplicatedData = [...trendingData, ...trendingData];
 
   return (
     <div className="p-3 bg-background rounded-md flex flex-col gap-2">
@@ -46,24 +37,26 @@ export default function Trending() {
       </div>
 
       <div
-        className="overflow-hidden whitespace-nowrap"
-        onMouseEnter={() => controls.stop()}
-        onMouseLeave={() =>
-          controls.start({
-            x: ["100%", "-100%"],
-            transition: {
-              repeat: Infinity,
-              duration: 8,
-              ease: "linear",
-            },
-          })
-        }
+        className="overflow-hidden whitespace-nowrap mask-fade"
+        onMouseEnter={() => setIsHovering(true)}
+        onMouseLeave={() => setIsHovering(false)}
       >
-        <motion.div className="flex gap-3" animate={controls}>
-          {trendingData.map((data) => (
+        <motion.div
+          className="flex gap-3 w-max"
+          animate={{
+            x: isHovering ? "0%" : ["0%", "-50%"],
+          }}
+          transition={{
+            ease: "linear",
+            duration: 20,
+            repeat: isHovering ? 0 : Infinity,
+          }}
+          style={{ display: "flex" }}
+        >
+          {duplicatedData.map((data, index) => (
             <Link
               href={`/articles?topics=${data.tag}`}
-              key={data.id}
+              key={`${data.id}-${index}`}
               className="text-sm font-semibold text-primary-foreground shrink-0 bg-primary p-1 rounded-md"
             >
               {data.tag}
