@@ -25,16 +25,16 @@ export default function MainArticle({
         />
         <div className="flex items-center gap-1">
           <Watch className="text-primary" />
-          <h5 className="text-primary">
+          <div className="text-primary">
             <h5 className="text-primary">
               {formatDistanceToNow(new Date(firstArticle.createdAt), {
                 addSuffix: true,
                 locale: navigator.language.startsWith("bn") ? bn : undefined,
               })}
             </h5>
-          </h5>
+          </div>
         </div>
-        <h2 className="lg:text-lg font-medium">{firstArticle.title}</h2>
+        <h2 className="lg:text-lg font-semibold">{firstArticle.title}</h2>
       </div>
       <div className="col-span-2 border"></div>
     </div>
