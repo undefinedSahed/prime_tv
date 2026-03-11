@@ -89,7 +89,7 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.87 0.00 0);
+  --primary: oklch(0.87 0 0);
   --primary-foreground: oklch(0.205 0 0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
@@ -131,9 +131,24 @@
   }
 }
 
-
 @layer components {
   section {
-    @apply py-8 lg:py-12
+    @apply py-8 lg:py-12;
+  }
+}
+
+@layer utilities {
+  @keyframes shadow-blink {
+    0%,
+    100% {
+      box-shadow: 0 0 0px 10px rgba(234, 171, 171, 0.6);
+    }
+    50% {
+      box-shadow: 0 0 0px 0px rgba(234, 171, 171, 0.6);
+    }
+  }
+
+  .animate-shadow-blink {
+    animation: shadow-blink 0.8s infinite;
   }
 }

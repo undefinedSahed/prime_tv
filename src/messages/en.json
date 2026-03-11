@@ -27,6 +27,20 @@
   "shareMarket": {
     "title": "Share Market"
   },
+  "live": {
+    "label": "Watch Live"
+  },
+  "time": {
+    "morning": "Morning",
+    "afternoon": "Afternoon",
+    "evening": "Evening",
+    "night": "Evening",
+    "lateNight": "Night"
+  },
+  "image": {
+    "label": "Image Story",
+    "lastLabel": "Image"
+  },
   "notFound": {
     "title": "Whoops! Looks Like This Page Went on Vacation!",
     "description": "Uh oh! Our little cartoon friends might have accidentally scribbled out this address. We can't seem to find the page you're looking for.",
