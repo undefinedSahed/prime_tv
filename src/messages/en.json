@@ -43,7 +43,9 @@
   },
   "article": {
     "headline": "Today's Headline",
-    "trending": "Trending"
+    "trending": "Trending",
+    "bazarPricing": "Bazar Pricing",
+    "more": "More"
   },
   "notFound": {
     "title": "Whoops! Looks Like This Page Went on Vacation!",

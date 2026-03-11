@@ -45,7 +45,9 @@
   },
   "article": {
     "headline": "আজকের শিরোনাম",
-    "trending": "ট্রেন্ডিং"
+    "trending": "ট্রেন্ডিং",
+    "bazarPricing": "বাজার দর",
+    "more": "আরও"
   },
   "notFound": {
     "title": "উপস! মনে হচ্ছে এই পেজটা ছুটিতে গেছে!",
