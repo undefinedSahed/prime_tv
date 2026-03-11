@@ -1,9 +1,10 @@
-import React from 'react'
+import React from "react";
+import Trending from "./trending";
 
 export default function ArticleSidebar() {
   return (
     <div>
-      Artcle Sidebar
+      <Trending />
     </div>
-  )
+  );
 }
