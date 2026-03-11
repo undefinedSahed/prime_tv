@@ -21,7 +21,6 @@ export default function CategorySidebar() {
   const {
     data: categories,
     isLoading,
-    isError,
   } = useQuery({
     queryKey: ["categories"],
     queryFn: () => getAllcategories(),
