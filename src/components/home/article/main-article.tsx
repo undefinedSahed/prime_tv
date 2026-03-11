@@ -2,7 +2,7 @@ import { Article } from "@/lib/types";
 import Image from "next/image";
 import React from "react";
 import { formatDistanceToNow } from "date-fns";
-import { Watch } from "lucide-react";
+import { Timer } from "lucide-react";
 import { bn } from "date-fns/locale";
 
 export default function MainArticle({
@@ -13,9 +13,9 @@ export default function MainArticle({
   const firstArticle = mainArticles[0];
 
   return (
-    <div className="grid lg:grid-cols-7 gap-6">
+    <div className="grid lg:grid-cols-7 gap-4 items-cener items-stretch">
       {/* First Article */}
-      <div className="col-span-5 border bg-background p-3 rounded-lg lg:space-y-3">
+      <div className="col-span-5 bg-background p-3 rounded-lg lg:space-y-3">
         <Image
           src={firstArticle.coverImage}
           alt={firstArticle.title}
@@ -24,19 +24,53 @@ export default function MainArticle({
           className="w-full aspect-5/3 object-cover rounded-lg"
         />
         <div className="flex items-center gap-1">
-          <Watch className="text-primary" />
-          <h5 className="text-primary">
+          <Timer className="text-primary" />
+          <div className="text-primary">
             <h5 className="text-primary">
               {formatDistanceToNow(new Date(firstArticle.createdAt), {
                 addSuffix: true,
                 locale: navigator.language.startsWith("bn") ? bn : undefined,
               })}
             </h5>
-          </h5>
+          </div>
         </div>
-        <h2 className="lg:text-lg font-medium">{firstArticle.title}</h2>
+        <h2 className="lg:text-lg font-semibold">{firstArticle.title}</h2>
       </div>
-      <div className="col-span-2 border"></div>
+      <div className="col-span-2">
+        <div className="flex flex-col gap-4">
+          {
+            // Rest of the articles
+            mainArticles.slice(1).map((article) => (
+              <div
+                key={article.id}
+                className="p-3 bg-background rounded-md lg:space-y-2"
+              >
+                <Image
+                  src={article.coverImage}
+                  alt={article.title}
+                  height={1000}
+                  width={1000}
+                  className="w-full aspect-5/3 rounded-md object-cover"
+                />
+                <div className="flex items-center gap-1">
+                  <Timer className="text-primary h-3 w-3" />
+                  <div className="text-primary">
+                    <h5 className="text-primary text-xs">
+                      {formatDistanceToNow(new Date(article.createdAt), {
+                        addSuffix: true,
+                        locale: navigator.language.startsWith("bn")
+                          ? bn
+                          : undefined,
+                      })}
+                    </h5>
+                  </div>
+                </div>
+                <h2 className="lg:text-sm font-semibold">{article.title}</h2>
+              </div>
+            ))
+          }
+        </div>
+      </div>
     </div>
   );
 }

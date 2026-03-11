@@ -42,7 +42,8 @@
     "lastLabel": "Image"
   },
   "article": {
-    "headline": "Today's Headline"
+    "headline": "Today's Headline",
+    "trending": "Trending"
   },
   "notFound": {
     "title": "Whoops! Looks Like This Page Went on Vacation!",
