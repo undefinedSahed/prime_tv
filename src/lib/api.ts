@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ArticleQueryParams } from "./types";
+import { ArticleQueryParams, CategoryQueryParam } from "./types";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -8,9 +8,11 @@ const api = axios.create({
   withCredentials: true,
 });
 
-export async function getAllcategories() {
+export async function getAllcategories(query?: CategoryQueryParam) {
   try {
-    const response = await api.get("/web/categories?page=1&limit=10");
+    const response = await api.get("/web/categories", {
+      params: query,
+    });
     return response.data;
   } catch (error) {
     console.error("Error fetching categories:", error);

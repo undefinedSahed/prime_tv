@@ -63,3 +63,10 @@ export interface Article {
   author: Author;
   category: Category;
 }
+
+export interface CategoryQueryParam {
+  page?: number;
+  limit?: number;
+  searchTerm?: string;
+  isActive?: boolean;
+}
