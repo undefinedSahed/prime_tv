@@ -50,11 +50,11 @@ export default function BazarPricing() {
   return (
     <div className="p-3 bg-white rounded-xl shadow-sm border border-gray-100 lg:space-y-3">
       {/* Header */}
-      <div className="flex justify-between items-center border-l-4 border-orange-500 pl-3">
+      <div className="flex justify-between items-center border-l-4 border-primary pl-3">
         <h2 className="text-xl font-bold text-gray-800">
           {tArticle("bazarPricing")}
         </h2>
-        <Link href="/pricing" className="flex items-center gap-1 text-yellow-800 cursor-pointer hover:underline">
+        <Link href="/pricing" className="flex items-center gap-1 text-primary cursor-pointer hover:underline">
           <span className="text-sm font-medium">{tArticle("more")}</span>
           <ArrowRight className="w-4 h-4" />
         </Link>

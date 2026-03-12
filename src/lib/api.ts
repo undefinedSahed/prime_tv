@@ -19,10 +19,10 @@ export async function getAllcategories() {
 }
 
 // Get articles
-export async function getArticles(query: ArticleQueryParams) {
+export async function getArticles(query?: ArticleQueryParams) {
   try {
     const response = await api.get("/web/articles", {
-      params: query,
+      params: query || { page: 1, limit: 10 },
     });
     return response.data;
   } catch (error) {
