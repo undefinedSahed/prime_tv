@@ -1,0 +1,51 @@
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Images } from "lucide-react";
+import { imageArticle } from "@/lib/api";
+
+interface ImageGalleryCardProps {
+  article: imageArticle;
+}
+
+export default function ImageGalleryCard({ article }: ImageGalleryCardProps) {
+  const imageCount = article.images?.length || 0;
+  const mainImage = article.images?.[0]?.url || "/placeholder.jpg";
+
+  return (
+    <Link href={`/gallery/${article.id}`} className="group block w-full">
+      <div className="flex flex-col gap-3">
+        {/* Stacked Effect Container */}
+        <div className="relative pt-2 px-1">
+          {/* Background Stacks (Visual decoration) */}
+          <div className="absolute top-0 left-4 right-4 h-full bg-gray-200 rounded-lg -translate-y-1 shadow-sm" />
+          <div className="absolute top-0 left-2 right-2 h-full bg-gray-300 rounded-lg -translate-y-0.5 shadow-sm" />
+
+          {/* Main Image Container */}
+          <div className="relative aspect-video w-full overflow-hidden rounded-xl shadow-md border border-gray-100">
+            <Image
+              src={mainImage}
+              alt={article.title}
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              sizes="(max-width: 768px) 100vw, 33vw"
+            />
+
+            {/* Top Right Badge (Image Count) */}
+            <div className="absolute top-3 right-3 flex items-center gap-1.5 bg-amber-500 text-gray-900 px-3 py-1 rounded-md shadow-lg">
+              <Images size={16} className="text-gray-900" />
+              <span className="text-sm font-bold uppercase">
+                {imageCount} Images
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Title */}
+        <h3 className="text-base font-bold leading-snug text-gray-800 transition-colors duration-200 group-hover:text-primary px-1 line-clamp-2">
+          {article.title}
+        </h3>
+      </div>
+    </Link>
+  );
+}

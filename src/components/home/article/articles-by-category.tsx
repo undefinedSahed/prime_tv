@@ -29,7 +29,7 @@ export default async function CategorySection({
       {/* Header */}
       <div className="flex justify-between items-baseline border-b border-gray-300 pb-2 mb-4">
         <div className="flex items-center gap-3 border-l-4 border-primary pl-3">
-          <h2 className="text-2xl font-bold text-gray-900">
+          <h2 className="text-xl font-bold text-gray-900">
             {category.titleBn || category.title}
           </h2>
         </div>

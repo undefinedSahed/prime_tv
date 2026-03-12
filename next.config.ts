@@ -13,7 +13,15 @@ const config: NextConfig = {
       {
         protocol: "https",
         hostname: "placehold.co",
-      }
+      },
+      {
+        protocol: "https",
+        hostname: "img.youtube.com",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.pixabay.com",
+      },
     ],
   },
 };
