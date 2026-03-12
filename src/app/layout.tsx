@@ -9,7 +9,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Prime Tv",
+  title: "Prime Tv | Trusted , Timely, True",
   description: "Trusted , Timely, True",
 };
 

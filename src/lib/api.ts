@@ -19,7 +19,7 @@ export async function getAllcategories() {
 }
 
 // Get articles
-export async function getArticles(query: ArticleQueryParams) {
+export async function getArticles(query?: ArticleQueryParams) {
   try {
     const response = await api.get("/web/articles", {
       params: query,
