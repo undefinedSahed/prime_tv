@@ -1,0 +1,60 @@
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Play } from "lucide-react";
+
+// Types for the individual article
+interface VideoArticle {
+  id: string | number;
+  title: string;
+  youtubeUrl: string;
+}
+
+interface VideoCardProps {
+  article: VideoArticle;
+}
+
+/**
+ * Extracts the YouTube ID from various URL formats
+ */
+const getYouTubeID = (url: string) => {
+  const regExp =
+    /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+  const match = url.match(regExp);
+  return match && match[2].length === 11 ? match[2] : null;
+};
+
+export default function VideoArticleCard({ article }: VideoCardProps) {
+  const videoId = getYouTubeID(article.youtubeUrl);
+  // Using hqdefault as a fallback if maxresdefault isn't available
+  const thumbnail = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+
+  return (
+    <Link href={`/video/${article.id}`} className="group block w-full">
+      <div className="flex flex-col gap-3">
+        {/* Thumbnail Container */}
+        <div className="relative aspect-video w-full overflow-hidden rounded-lg shadow-sm">
+          <Image
+            src={thumbnail}
+            alt={article.title}
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-110"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+
+          {/* Centered Play Button */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/90 shadow-xl transition-all duration-300 group-hover:bg-white group-hover:scale-110">
+              <Play className="ml-1 h-6 w-6 fill-amber-500 text-amber-500" />
+            </div>
+          </div>
+        </div>
+
+        {/* Article Title */}
+        <h3 className="text-base font-bold leading-snug text-gray-900 transition-colors duration-200 group-hover:text-primary line-clamp-2">
+          {article.title}
+        </h3>
+      </div>
+    </Link>
+  );
+}

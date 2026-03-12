@@ -46,7 +46,9 @@
     "trending": "Trending",
     "bazarPricing": "Bazar Pricing",
     "more": "More",
-    "specialArticle": "Special Reports"
+    "specialArticle": "Special Reports",
+    "video": "Video",
+    "image": "Image"
   },
   "notFound": {
     "title": "Whoops! Looks Like This Page Went on Vacation!",

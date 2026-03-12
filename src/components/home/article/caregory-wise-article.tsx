@@ -4,16 +4,16 @@ import React from "react";
 import CategorySection from "./articles-by-category";
 
 export default async function CategoryWiseArticles({
-  firstFourCategories,
+  fourCategories,
 }: {
-  firstFourCategories: Category[];
+  fourCategories: Category[];
 }) {
   const tArticle = await getTranslations("article");
 
   return (
-    <section className="py-10">
+    <section>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {firstFourCategories.map((category) => (
+        {fourCategories.map((category: Category) => (
           <CategorySection
             key={category.id}
             category={category}
