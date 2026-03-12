@@ -57,17 +57,17 @@ export const imageArticles: imageArticle[] = [
     images: [
       {
         id: 1,
-        url: "https://cdn.pixabay.com/photo/2017/10/20/19/37/oil-tanker-2869374_1280.jpg",
+        url: "/images/image-article1.jpg",
         caption: "বন্দরে নোঙর করা তেলবাহী ট্যাংকার",
       },
       {
         id: 2,
-        url: "https://images.pexels.com/photos/15589738/pexels-photo-15589738.jpeg",
+        url: "/images/image-article1.jpg",
         caption: "আন্তর্জাতিক বাণিজ্যে ব্যবহৃত তেলবাহী জাহাজ",
       },
       {
         id: 3,
-        url: "https://cdn.pixabay.com/photo/2018/06/12/09/58/ship-3466030_1280.jpg",
+        url: "/images/image-article1.jpg",
         caption: "সমুদ্রে চলমান কার্গো জাহাজ",
       },
     ],
@@ -78,17 +78,17 @@ export const imageArticles: imageArticle[] = [
     images: [
       {
         id: 1,
-        url: "https://cdn.pixabay.com/photo/2020/08/06/18/22/container-port-5466009_1280.jpg",
+        url: "/images/image-article1.jpg",
         caption: "কনটেইনার বন্দরে জাহাজ লোডিং কার্যক্রম",
       },
       {
         id: 2,
-        url: "https://cdn.pixabay.com/photo/2020/08/06/18/22/container-port-5466008_1280.jpg",
+        url: "/images/image-article1.jpg",
         caption: "বন্দর এলাকায় কনটেইনার ক্রেন",
       },
       {
         id: 3,
-        url: "https://cdn.pixabay.com/photo/2020/07/30/17/24/tanker-ship-5447381_1280.jpg",
+        url: "/images/image-article1.jpg",
         caption: "তেলবাহী ট্যাংকার জাহাজ",
       },
     ],
@@ -99,17 +99,17 @@ export const imageArticles: imageArticle[] = [
     images: [
       {
         id: 1,
-        url: "https://cdn.pixabay.com/photo/2016/03/10/21/38/tanker-1242111_1280.jpg",
+        url: "/images/image-article1.jpg",
         caption: "সমুদ্রে চলমান বড় তেলবাহী জাহাজ",
       },
       {
         id: 2,
-        url: "https://images.pexels.com/photos/15589738/pexels-photo-15589738.jpeg",
+        url: "/images/image-article1.jpg",
         caption: "বন্দরে নোঙর করা জাহাজ",
       },
       {
         id: 3,
-        url: "https://cdn.pixabay.com/photo/2017/10/20/19/37/oil-tanker-2869374_1280.jpg",
+        url: "/images/image-article1.jpg",
         caption: "তেল পরিবহনে ব্যবহৃত ট্যাংকার",
       },
     ],
@@ -120,17 +120,17 @@ export const imageArticles: imageArticle[] = [
     images: [
       {
         id: 1,
-        url: "https://cdn.pixabay.com/photo/2016/03/10/21/38/tanker-1242111_1280.jpg",
+        url: "/images/image-article1.jpg",
         caption: "সমুদ্রে চলমান বড় তেলবাহী জাহাজ",
       },
       {
         id: 2,
-        url: "https://images.pexels.com/photos/15589738/pexels-photo-15589738.jpeg",
+        url: "/images/image-article1.jpg",
         caption: "বন্দরে নোঙর করা জাহাজ",
       },
       {
         id: 3,
-        url: "https://cdn.pixabay.com/photo/2017/10/20/19/37/oil-tanker-2869374_1280.jpg",
+        url: "/images/image-article1.jpg",
         caption: "তেল পরিবহনে ব্যবহৃত ট্যাংকার",
       },
     ],
@@ -141,17 +141,17 @@ export const imageArticles: imageArticle[] = [
     images: [
       {
         id: 1,
-        url: "https://cdn.pixabay.com/photo/2016/03/10/21/38/tanker-1242111_1280.jpg",
+        url: "/images/image-article1.jpg",
         caption: "সমুদ্রে চলমান বড় তেলবাহী জাহাজ",
       },
       {
         id: 2,
-        url: "https://images.pexels.com/photos/15589738/pexels-photo-15589738.jpeg",
+        url: "/images/image-article1.jpg",
         caption: "বন্দরে নোঙর করা জাহাজ",
       },
       {
         id: 3,
-        url: "https://cdn.pixabay.com/photo/2017/10/20/19/37/oil-tanker-2869374_1280.jpg",
+        url: "/images/image-article1.jpg",
         caption: "তেল পরিবহনে ব্যবহৃত ট্যাংকার",
       },
     ],

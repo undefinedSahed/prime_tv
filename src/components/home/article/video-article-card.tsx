@@ -30,7 +30,7 @@ export default function VideoArticleCard({ article }: VideoCardProps) {
   const thumbnail = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
 
   return (
-    <Link href={`/article/${article.id}`} className="group block w-full">
+    <Link href={`/video/${article.id}`} className="group block w-full">
       <div className="flex flex-col gap-3">
         {/* Thumbnail Container */}
         <div className="relative aspect-video w-full overflow-hidden rounded-lg shadow-sm">

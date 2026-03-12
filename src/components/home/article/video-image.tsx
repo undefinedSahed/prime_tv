@@ -16,7 +16,7 @@ export default function VideoAndImage({
   const tArticle = useTranslations("article");
 
   return (
-    <section>
+    <div>
       <div className="grid lg:grid-cols-2 gap-10 items-center">
         {/* Video part */}
         <div className="w-full">
@@ -60,6 +60,6 @@ export default function VideoAndImage({
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

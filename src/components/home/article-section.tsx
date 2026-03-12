@@ -29,6 +29,11 @@ export default async function ArticleSection() {
     limit: 4,
   });
 
+  const { data: lastFourCategories } = await getAllcategories({
+    page: 2,
+    limit: 4,
+  });
+
   // Get all videos
   const videoAticles = await getVideos();
 
@@ -41,11 +46,12 @@ export default async function ArticleSection() {
       <ArticleTop threeArticles={topThreeArticles} />
       <SecondArticleSection secondArticles={secondArticles} />
       <SpecialArticle specialArticles={specialArticles} />
-      <CategoryWiseArticles firstFourCategories={firstFourCategories} />
+      <CategoryWiseArticles fourCategories={firstFourCategories} />
       <VideoAndImage
         videoArticles={videoAticles.slice(0, 4)}
         imageArticles={imageArticles.slice(0, 4)}
       />
+      <CategoryWiseArticles fourCategories={lastFourCategories} />
     </section>
   );
 }
