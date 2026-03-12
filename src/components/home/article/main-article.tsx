@@ -74,7 +74,7 @@ export default function MainArticle({
                   </h5>
                 </div>
               </div>
-              <h2 className="lg:text-sm font-semibold">{article.title}</h2>
+              <h2 className="lg:text-base font-semibold">{article.title}</h2>
               <div
                 dangerouslySetInnerHTML={{ __html: article.details }}
                 className="line-clamp-2 text-xs font-normal text-muted-foreground"

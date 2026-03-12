@@ -37,7 +37,7 @@ export default function SecondArticleCard({ article }: { article: Article }) {
             </div>
             <h5 className="text-sm relative before:absolute before:top-1/2 before:-left-3 before:-translate-y-1/2 before:rounded-full before:h-2 before:w-2 before:bg-primary">{article.category.title}</h5>
           </div>
-          <h3 className="text-sm font-semibold group-hover:underline">
+          <h3 className="text-base font-semibold group-hover:underline">
             {article.title}
           </h3>
         </div>
