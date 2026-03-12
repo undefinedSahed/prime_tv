@@ -22,7 +22,7 @@ export async function getAllcategories() {
 export async function getArticles(query?: ArticleQueryParams) {
   try {
     const response = await api.get("/web/articles", {
-      params: query || { page: 1, limit: 10 },
+      params: query,
     });
     return response.data;
   } catch (error) {

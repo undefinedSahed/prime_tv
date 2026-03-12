@@ -1,4 +1,3 @@
-import { getArticles } from "@/lib/api";
 import { Article } from "@/lib/types";
 import { formatDistanceToNow } from "date-fns";
 import { bn } from "date-fns/locale";
@@ -8,12 +7,12 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-export default async function SpecialArticle() {
+export default async function SpecialArticle({
+  specialArticles,
+}: {
+  specialArticles: Article[];
+}) {
   const tArticle = await getTranslations("article");
-
-  const { data: specialArticles } = await getArticles({
-    isExclusive: true,
-  });
 
   const firstSpecialArticle = specialArticles[0];
   const restFourSpecialArticles = specialArticles.slice(1, 6);
