@@ -2,6 +2,9 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Article } from "@/lib/types";
+import { Timer } from "lucide-react";
+import { formatDistanceToNow } from "date-fns";
+import { bn } from "date-fns/locale";
 
 interface HorizontalArticleCardProps {
   article: Article;
@@ -10,7 +13,7 @@ interface HorizontalArticleCardProps {
 export default function HorizontalArticleCard({ article }: HorizontalArticleCardProps) {
   return (
     <Link
-      href={`/articles/${article.slug}`}
+      href={`/news/${article.slug}`}
       className="group block w-full border-b border-gray-100 py-3 last:border-0"
     >
       <div className="flex flex-col md:flex-row gap-5 lg:gap-8 items-start">
@@ -27,9 +30,19 @@ export default function HorizontalArticleCard({ article }: HorizontalArticleCard
         </div>
 
         <div className="flex flex-col flex-1 gap-2">
-          <span className="text-orange-700 text-sm font-bold">
-            ১৫ মিনিট আগে
-          </span>
+          <div className="flex items-center gap-1">
+            <Timer className="text-primary h-3 w-3" />
+            <div className="text-primary">
+              <h5 className="text-primary text-xs">
+                {formatDistanceToNow(new Date(article.createdAt), {
+                  addSuffix: true,
+                  locale: navigator.language.startsWith("bn")
+                    ? bn
+                    : undefined,
+                })}
+              </h5>
+            </div>
+          </div>
 
           <h2 className="text-xl md:text-2xl font-bold text-gray-900 leading-tight group-hover:text-primary transition-colors line-clamp-2">
             {article.title}

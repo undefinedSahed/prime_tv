@@ -17,7 +17,7 @@ export default function MainArticle({
     <div className="grid md:grid-cols-7 md:gap-4 gap-2 items-stretch">
       {/* First Article */}
       <Link
-        href={`/article/${firstArticle.slug}`}
+        href={`/news/${firstArticle.slug}`}
         className="md:col-span-5 col-span-7 bg-background p-3 rounded-lg md:space-y-3"
       >
         <Image
@@ -50,7 +50,7 @@ export default function MainArticle({
         <div className="flex flex-col gap-4">
           {mainArticles.slice(1).map((article) => (
             <Link
-              href={`/article/${article.slug}`}
+              href={`/news/${article.slug}`}
               key={article.id}
               className="p-3 bg-background rounded-md lg:space-y-2"
             >

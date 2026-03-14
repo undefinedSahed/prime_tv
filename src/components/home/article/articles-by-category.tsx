@@ -34,7 +34,7 @@ export default async function CategorySection({
           </h2>
         </div>
         <Link
-          href={`/article?categoryId=${category.id}`}
+          href={`/news?categoryId=${category.id}`}
           className="flex items-center gap-1 text-orange-800 hover:text-primary transition-colors"
         >
           <span className="text-sm font-bold">{moreText}</span>
@@ -64,7 +64,7 @@ export default async function CategorySection({
               </h5>
             </div>
           </div>
-          <Link href={`/article/${featuredArticle.slug}`}>
+          <Link href={`/news/${featuredArticle.slug}`}>
             <h3 className="text-base font-medium leading-snug text-gray-900 group-hover:underline transition-colors line-clamp-2">
               {featuredArticle.title}
             </h3>
@@ -89,7 +89,7 @@ export default async function CategorySection({
                 </h5>
               </div>
             </div>
-            <Link href={`/article/${article.slug}`}>
+            <Link href={`/news/${article.slug}`}>
               <h4 className="text-base font-medium leading-relaxed text-gray-800 group-hover:underline transition-colors line-clamp-2">
                 {article.title}
               </h4>

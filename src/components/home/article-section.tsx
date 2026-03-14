@@ -1,9 +1,9 @@
 import React from "react";
+import { getTranslations } from "next-intl/server";
+import { getAllcategories, getArticles, getImages, getVideos } from "@/lib/api";
 import ArticleTop from "./article/article-top";
 import SecondArticleSection from "./article/second-article-section";
 import SpecialArticle from "./article/special-article";
-import { getTranslations } from "next-intl/server";
-import { getAllcategories, getArticles, getImages, getVideos } from "@/lib/api";
 import CategoryWiseArticles from "./article/caregory-wise-article";
 import VideoAndImage from "./article/video-image";
 

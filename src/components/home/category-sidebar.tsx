@@ -9,7 +9,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Category } from "@/lib/types";
 import CategorySkeleton from "./skeleton/acategory-skeleton";
 
-export default function CategorySidebar() {
+export default function CategorySidebar({ onClose }: { onClose?: () => void }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleCategory = (index: number) => {
@@ -34,7 +34,7 @@ export default function CategorySidebar() {
   return (
     <div className="w-full bg-background rounded-lg">
       <div className="lg:p-5 p-3 flex flex-col gap-2">
-        <Link href="/video">
+        <Link href="/video" onClick={onClose}>
           <div className="flex items-center gap-2 px-4 py-3 rounded-md bg-linear-to-r from-primary to-primary/70 text-primary-foreground font-semibold">
             <span>
               <Camera />
@@ -46,7 +46,7 @@ export default function CategorySidebar() {
           <div key={index}>
             <div className="flex flex-col">
               <div className="flex items-center text-base font-medium justify-between px-2 py-2 text-gray-800 hover:text-primary cursor-pointer">
-                <Link href={`/category/${category.slug}`}>
+                <Link href={`/category/${category.slug}`} onClick={onClose}>
                   {category.titleBn}
                 </Link>
 
@@ -67,6 +67,7 @@ export default function CategorySidebar() {
                       href={`/articles?categoryId=${category.id}?subcategoryId=${sub.id}`}
                       key={sub.id}
                       className="py-1 text-base hover:text-primary cursor-pointer"
+                      onClick={onClose}
                     >
                       {sub.titleBn}
                     </Link>
@@ -77,7 +78,7 @@ export default function CategorySidebar() {
           </div>
         ))}
 
-        <Link href={`/articles?type=image`}>
+        <Link href={`/articles?type=image`} onClick={onClose}>
           <div className="flex items-center px-2.5 py-3 font-semibold hover:text-primary">
             <span>{tImage("lastLabel")}</span>
           </div>

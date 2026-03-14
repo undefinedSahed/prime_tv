@@ -184,6 +184,29 @@ export async function getArticles(query?: ArticleQueryParams) {
   }
 }
 
+// Get single article
+export async function getSingleArticle(slug: string) {
+  try {
+    const response = await api.get(`/web/articles/by-slug/${slug}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching single article:", error);
+    throw error;
+  }
+}
+
+// Get related articles
+export async function getRelatedArticles(slug: string) {
+  try {
+    const articles = await api.get(`/web/articles`);
+    const response = articles?.data?.data?.slice(0, 5)
+    return response;
+  } catch (error) {
+    console.error("Error fetching related articles:", error);
+    throw error;
+  }
+}
+
 // Get videos
 export async function getVideos() {
   try {

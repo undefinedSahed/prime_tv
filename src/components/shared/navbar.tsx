@@ -23,7 +23,7 @@ import { Input } from "../ui/input";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import LiveClock from "../home/live-clock";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 const navigationItems = [
   { key: "home", href: "/" },
@@ -38,13 +38,16 @@ export function Navbar() {
   const tImage = useTranslations("image");
 
   const [isSearchOpen, setIsSearchOpen] = React.useState(false);
+  const [isSheetOpen, setIsSheetOpen] = React.useState(false);
   const [searchQuery, setSearchQuery] = React.useState("");
   const router = useRouter();
+  const pathname = usePathname();
+  const isSearchPage = pathname.includes("/search");
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      router.push(`/search?searchTerm=${encodeURIComponent(searchQuery)}`);
+      router.push(`/search?q=${encodeURIComponent(searchQuery)}`);
       setIsSearchOpen(false);
     }
   };
@@ -92,50 +95,55 @@ export function Navbar() {
               <span className="text-[11px] sm:text-xs font-bold tracking-tight whitespace-nowrap">{tLive("label")}</span>
             </Link>
 
-            {/* Chobir Golpo */}
             <Link href="/articles?type=image" className="shrink-0 flex items-center justify-center gap-1.5 rounded-md bg-[#fff4e5] px-3 py-1 text-[#f97316] transition hover:scale-105">
               <Camera className="h-4 w-4" strokeWidth={2} />
               <span className="text-[11px] sm:text-xs font-bold tracking-tight whitespace-nowrap text-[#f97316]">{tImage("lastLabel")}</span>
             </Link>
 
-            {/* Search Icon */}
-            <button 
-              aria-label="Search" 
-              onClick={() => setIsSearchOpen(true)}
-              className="shrink-0 flex items-center justify-center p-1 text-gray-800 transition hover:text-black"
-            >
-              <Search className="h-5 w-5 sm:h-6 sm:w-6" />
-            </button>
+            {!isSearchPage && (
+              <button 
+                aria-label="Search" 
+                onClick={() => setIsSearchOpen(true)}
+                className="shrink-0 flex items-center justify-center p-1 text-gray-800 transition hover:text-black"
+              >
+                <Search className="h-5 w-5 sm:h-6 sm:w-6" />
+              </button>
+            )}
 
-            {/* Hamburger */}
-            <Sheet>
+            <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
               <SheetTitle className="sr-only">Menu</SheetTitle>
               <SheetTrigger aria-label="Open menu" className="shrink-0 flex items-center justify-center p-1">
                 <Menu className="h-6 w-6 sm:h-7 sm:w-7 text-gray-800" />
               </SheetTrigger>
-              <SheetContent side="left" className="w-[300px] sm:w-[400px] p-0">
+              <SheetContent side="right" className="w-[300px] sm:w-[400px] p-0">
                 <LiveClock />
-                <CategorySidebar />
+                <CategorySidebar onClose={() => setIsSheetOpen(false)} />
               </SheetContent>
             </Sheet>
           </div>
 
-          {/* Desktop Only Navigation Controls */}
-          <div className="hidden lg:flex items-center gap-4">
-            <LanguageSwitcher />
-            <form onSubmit={handleSearchSubmit} className="relative w-full max-w-md group">
-              <button type="submit" aria-label="Submit Search" className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground transition-colors group-focus-within:text-foreground">
-                <Search className="h-5 w-5" />
-              </button>
-              <Input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder={tSearch("placeholder")}
-                className="h-10 w-full rounded-full border-none bg-[#f0f2f5] pl-6 pr-12 text-base ring-offset-transparent focus-visible:ring-2 focus-visible:ring-gray-300 focus-visible:ring-offset-0"
-              />
-            </form>
-          </div>
+          {!isSearchPage && (
+            <div className="hidden lg:flex items-center gap-4">
+              <LanguageSwitcher />
+              <form onSubmit={handleSearchSubmit} className="relative w-full max-w-md group">
+                <button type="submit" aria-label="Submit Search" className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground transition-colors group-focus-within:text-foreground">
+                  <Search className="h-5 w-5" />
+                </button>
+                <Input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder={tSearch("placeholder")}
+                  className="h-10 w-full rounded-full border-none bg-[#f0f2f5] pl-6 pr-12 text-base ring-offset-transparent focus-visible:ring-2 focus-visible:ring-gray-300 focus-visible:ring-offset-0"
+                />
+              </form>
+            </div>
+          )}
+          {isSearchPage && (
+            <div className="hidden lg:flex items-center gap-4">
+              <LanguageSwitcher />
+            </div>
+          )}
         </div>
 
         {/* Mobile Search Overlay */}

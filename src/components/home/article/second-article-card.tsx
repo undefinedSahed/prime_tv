@@ -9,7 +9,7 @@ import Link from "next/link";
 export default function SecondArticleCard({ article }: { article: Article }) {
 
   return (
-    <Link href={`/article/${article.slug}`} className="group">
+    <Link href={`/news/${article.slug}`} className="group">
       <div className="grid md:grid-cols-5 items-center md:gap-3">
         <div className="md:col-span-2">
           <Image

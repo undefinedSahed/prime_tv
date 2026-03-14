@@ -1,7 +1,7 @@
 import React from "react";
 import MainArticle from "./main-article";
-import ArticleSidebar from "./article-sidebar";
 import { Article } from "@/lib/types";
+import ArticleSidebar from "./article-sidebar";
 
 export default async function ArticleTop({
   threeArticles,
