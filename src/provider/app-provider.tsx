@@ -4,6 +4,7 @@ import React from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Navbar } from "@/components/shared/navbar";
 import { Footer } from "@/components/shared/footer";
+import { MobileBottomNav } from "@/components/shared/mobile-bottom-nav";
 import { usePathname } from "next/navigation";
 import { useLocale } from "next-intl";
 
@@ -25,8 +26,15 @@ export default function AppProvider({
   return (
     <QueryClientProvider client={queryClient}>
       {!hideNavAndFooter.includes(pathname) && <Navbar />}
-      {children}
-      {!hideNavAndFooter.includes(pathname) && <Footer />}
+      <div className="md:pb-0 pb-16">
+        {children}
+      </div>
+      {!hideNavAndFooter.includes(pathname) && (
+        <>
+          <Footer />
+          <MobileBottomNav />
+        </>
+      )}
     </QueryClientProvider>
   );
 }

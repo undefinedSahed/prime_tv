@@ -1,7 +1,7 @@
 import React from "react";
 import MainArticle from "./main-article";
-import ArticleSidebar from "./article-sidebar";
 import { Article } from "@/lib/types";
+import ArticleSidebar from "./article-sidebar";
 
 export default async function ArticleTop({
   threeArticles,
@@ -9,11 +9,11 @@ export default async function ArticleTop({
   threeArticles: Article[];
 }) {
   return (
-    <div className="grid lg:grid-cols-12 gap-10">
-      <div className="col-span-9">
+    <div className="grid lg:grid-cols-12 lg:gap-10 gap-5 w-full">
+      <div className="lg:col-span-9 col-span-12">
         <MainArticle mainArticles={threeArticles} />
       </div>
-      <div className="col-span-3">
+      <div className="lg:col-span-3 col-span-12">
         <ArticleSidebar />
       </div>
     </div>

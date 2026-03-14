@@ -1,9 +1,9 @@
 import React from "react";
+import { getTranslations } from "next-intl/server";
+import { getAllcategories, getArticles, getImages, getVideos } from "@/lib/api";
 import ArticleTop from "./article/article-top";
 import SecondArticleSection from "./article/second-article-section";
 import SpecialArticle from "./article/special-article";
-import { getTranslations } from "next-intl/server";
-import { getAllcategories, getArticles, getImages, getVideos } from "@/lib/api";
 import CategoryWiseArticles from "./article/caregory-wise-article";
 import VideoAndImage from "./article/video-image";
 
@@ -41,8 +41,8 @@ export default async function ArticleSection() {
   const imageArticles = await getImages();
 
   return (
-    <section className="lg:pb-5. pt-0">
-      <h1 className="lg:text-3xl font-bold lg:pb-3">{tArticle("headline")}</h1>
+    <section className="lg:pb-5 lg:py-0 py-2">
+      <h1 className="lg:text-3xl text-xl font-bold lg:pb-3">{tArticle("headline")}</h1>
       <ArticleTop threeArticles={topThreeArticles} />
       <SecondArticleSection secondArticles={secondArticles} />
       <SpecialArticle specialArticles={specialArticles} />

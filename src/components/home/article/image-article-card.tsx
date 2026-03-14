@@ -32,9 +32,9 @@ export default function ImageGalleryCard({ article }: ImageGalleryCardProps) {
             />
 
             {/* Top Right Badge (Image Count) */}
-            <div className="absolute top-3 right-3 flex items-center gap-1.5 bg-amber-500 text-gray-900 px-3 py-1 rounded-md shadow-lg">
-              <Images size={16} className="text-gray-900" />
-              <span className="text-sm font-bold uppercase">
+            <div className="absolute top-3 right-3 flex items-center gap-1.5 bg-primary text-gray-900 px-2 py-1 rounded-md shadow-lg">
+              <Images size={12} className="text-primary-foreground" />
+              <span className="text-xs text-primary-foreground font-bold uppercase">
                 {imageCount} Images
               </span>
             </div>
@@ -42,7 +42,7 @@ export default function ImageGalleryCard({ article }: ImageGalleryCardProps) {
         </div>
 
         {/* Title */}
-        <h3 className="text-base font-bold leading-snug text-gray-800 transition-colors duration-200 group-hover:text-primary px-1 line-clamp-2">
+        <h3 className="md:text-base text-xs font-bold leading-snug text-gray-800 transition-colors duration-200 group-hover:text-primary px-1 line-clamp-2">
           {article.title}
         </h3>
       </div>

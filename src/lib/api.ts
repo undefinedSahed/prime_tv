@@ -6,6 +6,7 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL;
 const api = axios.create({
   baseURL: API_URL,
   withCredentials: true,
+  proxy: false, // Prevents Axios from using `url.parse()` internally for proxy resolution
 });
 
 export interface videoArticles {
@@ -179,6 +180,29 @@ export async function getArticles(query?: ArticleQueryParams) {
     return response.data;
   } catch (error) {
     console.error("Error fetching articles:", error);
+    throw error;
+  }
+}
+
+// Get single article
+export async function getSingleArticle(slug: string) {
+  try {
+    const response = await api.get(`/web/articles/by-slug/${slug}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching single article:", error);
+    throw error;
+  }
+}
+
+// Get related articles
+export async function getRelatedArticles() {
+  try {
+    const articles = await api.get(`/web/articles`);
+    const response = articles?.data?.data?.slice(0, 5)
+    return response;
+  } catch (error) {
+    console.error("Error fetching related articles:", error);
     throw error;
   }
 }

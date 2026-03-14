@@ -20,12 +20,12 @@ export default async function SpecialArticle({
   return (
     <section className="relative p-3 rounded-md h-full bg-[url('/images/bg-pattern.svg')] bg-cover bg-center bg-no-repeat z-10">
       <div className="absolute inset-0 w-full h-full opacity-40 bg-primary rounded-md -z-10"></div>
-      <div className="flex justify-between items-center p-3 ">
+      <div className="flex justify-between items-center py-3">
         <h2 className="text-xl font-bold  border-l-4 border-primary pl-3">
           {tArticle("specialArticle")}
         </h2>
         <Link
-          href="/article?category=special"
+          href="/news?category=special"
           className="flex items-center gap-1  cursor-pointer hover:underline"
         >
           <span className="text-sm font-medium">{tArticle("more")}</span>
@@ -36,7 +36,7 @@ export default async function SpecialArticle({
       <div className="grid lg:grid-cols-2 gap-3 items-stretch">
         {/* Fisrt Special Article */}
         <Link
-          href={`/article/${firstSpecialArticle.slug}`}
+          href={`/news/${firstSpecialArticle.slug}`}
           className="bg-primary/80 rounded-md"
         >
           <Image
@@ -67,7 +67,7 @@ export default async function SpecialArticle({
           {restFourSpecialArticles.map((article: Article) => (
             <Link
               key={article.id}
-              href={`/article/${article.slug}`}
+              href={`/news/${article.slug}`}
               className="group grid-cols-12 grid items-center gap-2"
             >
               <div className="col-span-3">

@@ -22,7 +22,10 @@
     "createPassword": "Create a password"
   },
   "search": {
-    "placeholder": "Search ..."
+    "placeholder": "Search...",
+    "resultsFound": "Results found: {count}",
+    "showingResults": "Showing results for: \"{query}\"...",
+    "noResults": "No results found"
   },
   "shareMarket": {
     "title": "Share Market"
@@ -48,7 +51,8 @@
     "more": "More",
     "specialArticle": "Special Reports",
     "video": "Video",
-    "image": "Image"
+    "image": "Image",
+    "relatedArticle": "Other related news"
   },
   "notFound": {
     "title": "Whoops! Looks Like This Page Went on Vacation!",

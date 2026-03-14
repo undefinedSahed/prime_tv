@@ -5,10 +5,14 @@ import CategorySidebar from "./category-sidebar";
 
 export default function HomeSidebar() {
   return (
-    <aside className="w-full">
-      <BlinkingLiveButton />
-      <LiveClock />
-      <CategorySidebar />
+    <aside className="">
+      <div className="hidden lg:block">
+        <BlinkingLiveButton />
+        <LiveClock />
+      </div>
+      <div className="hidden lg:block">
+        <CategorySidebar />
+      </div>
     </aside>
   );
 }

@@ -23,7 +23,10 @@
     "haveAcc": "অ্যাকাউন্ট আছে? লগ ইন করুন"
   },
   "search": {
-    "placeholder": "যা খুঁজতে চান..."
+    "placeholder": "যা খুঁজতে চান...",
+    "resultsFound": "প্রাপ্ত ফলাফল: {count}",
+    "showingResults": "\"{query}\" এর জন্য ফলাফল দেখানো হচ্ছে...",
+    "noResults": "কোনো ফলাফল পাওয়া যায়নি"
   },
 
   "shareMarket": {
@@ -50,7 +53,8 @@
     "more": "আরও",
     "specialArticle": "বিশেষ প্রতিবেদন",
     "video": "ভিডিও",
-    "image": "ছবি"
+    "image": "ছবি",
+    "relatedArticle": "এই সম্পর্কিত অন্যান্য খবর"
   },
   "notFound": {
     "title": "উপস! মনে হচ্ছে এই পেজটা ছুটিতে গেছে!",
