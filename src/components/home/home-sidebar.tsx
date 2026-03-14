@@ -6,7 +6,7 @@ import CategorySidebar from "./category-sidebar";
 export default function HomeSidebar() {
   return (
     <aside className="">
-      <div className="hidden md:block">
+      <div className="hidden lg:block">
         <BlinkingLiveButton />
         <LiveClock />
       </div>

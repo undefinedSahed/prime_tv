@@ -51,7 +51,7 @@ export default function VideoArticleCard({ article }: VideoCardProps) {
         </div>
 
         {/* Article Title */}
-        <h3 className="lg:text-base text-xs font-bold leading-snug text-gray-900 transition-colors duration-200 group-hover:text-primary line-clamp-2">
+        <h3 className="md:text-base text-xs font-bold leading-snug text-gray-900 transition-colors duration-200 group-hover:text-primary line-clamp-2">
           {article.title}
         </h3>
       </div>

@@ -64,7 +64,7 @@ export function Navbar() {
             />
           </Link>
 
-          <nav className="hidden md:flex">
+          <nav className="hidden lg:flex">
             <NavigationMenu>
               <NavigationMenuList>
                 {navigationItems.map((item) => (
@@ -84,8 +84,8 @@ export function Navbar() {
 
         {/* Right Side */}
         <div className="flex items-center gap-2 justify-end min-w-0">
-          {/* Mobile Only Navigation Controls */}
-          <div className="flex md:hidden items-center gap-2 min-[400px]:gap-3 sm:gap-4 shrink-0">
+          {/* Mobile Only Navigation Controls */} 
+          <div className="flex lg:hidden items-center gap-2 min-[400px]:gap-3 sm:gap-4 shrink-0">
             {/* Live Button */}
             <Link href="/video/live" className="shrink-0 flex items-center justify-center gap-1.5 rounded-full bg-[#ff3b3b] px-3 py-1 text-white shadow-sm transition hover:scale-105 animate-shadow-blink">
               <Video className="h-4 w-4 fill-transparent stroke-white" strokeWidth={2} />
@@ -121,7 +121,7 @@ export function Navbar() {
           </div>
 
           {/* Desktop Only Navigation Controls */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-4">
             <LanguageSwitcher />
             <form onSubmit={handleSearchSubmit} className="relative w-full max-w-md group">
               <button type="submit" aria-label="Submit Search" className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground transition-colors group-focus-within:text-foreground">
@@ -140,7 +140,7 @@ export function Navbar() {
 
         {/* Mobile Search Overlay */}
         {isSearchOpen && (
-          <div className="absolute inset-0 z-50 flex items-center bg-[#f7f8f9] md:hidden w-full h-full px-4 border-b">
+          <div className="absolute inset-0 z-50 flex items-center bg-[#f7f8f9] lg:hidden w-full h-full px-4 border-b">
             <form onSubmit={handleSearchSubmit} className="flex h-full w-full items-center justify-between gap-2">
               <Input
                 type="text"
