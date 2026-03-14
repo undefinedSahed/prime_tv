@@ -4,13 +4,13 @@ import ArticleSection from "./article-section";
 
 export default function MainLayout() {
   return (
-    <div className="container">
+    <div className="container mx-auto">
       <div className="grid lg:grid-cols-12 lg:gap-12 lg:py-5">
         <div className="lg:col-span-2 sticky top-0">
           <HomeSidebar />
         </div>
         <div className="lg:col-span-10">
-          <ArticleSection />
+          {/* <ArticleSection /> */}
         </div>
       </div>
     </div>

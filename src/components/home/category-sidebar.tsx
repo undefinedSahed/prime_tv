@@ -33,7 +33,7 @@ export default function CategorySidebar() {
 
   return (
     <div className="w-full bg-background rounded-lg">
-      <div className="p-5 flex flex-col gap-2">
+      <div className="lg:p-5 p-3 flex flex-col gap-2">
         <Link href="/video">
           <div className="flex items-center gap-2 px-4 py-3 rounded-md bg-linear-to-r from-primary to-primary/70 text-primary-foreground font-semibold">
             <span>

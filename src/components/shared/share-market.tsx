@@ -21,7 +21,7 @@ export default function ShareMarket() {
   const tShare = useTranslations("shareMarket");
 
   return (
-    <div className="py-6">
+    <div className="lg:py-6 py-2">
       <div className="container">
         <div className="relative flex h-14 w-full items-center overflow-hidden border-y bg-white shadow-sm rounded-md">
           {/* Static Label (Z-index keeps it on top) */}
@@ -30,7 +30,7 @@ export default function ShareMarket() {
           </div>
 
           {/* Framer Motion Container */}
-          <div className="flex w-full overflow-hidden">
+          <div className="flex flex-1 min-w-0 overflow-hidden">
             <motion.div
               className="flex whitespace-nowrap py-2"
               animate={{ x: ["0%", "-50%"] }}
@@ -45,10 +45,10 @@ export default function ShareMarket() {
               {tickerData.map((stock, i) => (
                 <div
                   key={i}
-                  className="flex items-center gap-3 px-8 border-r border-gray-100 last:border-r-0"
+                  className="flex items-center lg:gap-3 gap-2 lg:px-8 px-4 border-r border-gray-100 last:border-r-0"
                 >
                   <div className="flex flex-col">
-                    <span className="text-sm font-bold text-slate-800 tracking-tight">
+                    <span className="text-xs font-bold text-slate-800 tracking-tight">
                       {stock.name}
                     </span>
                     <div className="flex items-center gap-2 text-xs font-medium">

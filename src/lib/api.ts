@@ -6,6 +6,7 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL;
 const api = axios.create({
   baseURL: API_URL,
   withCredentials: true,
+  proxy: false, // Prevents Axios from using `url.parse()` internally for proxy resolution
 });
 
 export interface videoArticles {
