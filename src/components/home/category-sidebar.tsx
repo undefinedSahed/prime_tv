@@ -46,16 +46,15 @@ export default function CategorySidebar() {
           <div key={index}>
             <div className="flex flex-col">
               <div className="flex items-center text-base font-medium justify-between px-2 py-2 text-gray-800 hover:text-primary cursor-pointer">
-                <Link href={`/articles?categoryId=${category.id}`}>
+                <Link href={`/category/${category.slug}`}>
                   {category.titleBn}
                 </Link>
 
                 {category.subCategories.length > 0 && (
                   <ChevronRight
                     size={16}
-                    className={`text-gray-400 transition-transform ${
-                      openIndex === index ? "rotate-90" : ""
-                    }`}
+                    className={`text-gray-400 transition-transform ${openIndex === index ? "rotate-90" : ""
+                      }`}
                     onClick={() => toggleCategory(index)}
                   />
                 )}

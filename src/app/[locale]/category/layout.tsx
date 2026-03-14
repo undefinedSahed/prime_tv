@@ -1,8 +1,7 @@
+import HomeSidebar from "@/components/home/home-sidebar";
 import React from "react";
-import HomeSidebar from "./home-sidebar";
-import ArticleSection from "./article-section";
 
-export default function MainLayout() {
+export default function MainLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="container mx-auto">
       <div className="grid lg:grid-cols-12 lg:gap-12 lg:py-5">
@@ -10,7 +9,7 @@ export default function MainLayout() {
           <HomeSidebar />
         </div>
         <div className="lg:col-span-10 cols-span-12">
-          <ArticleSection />
+          {children}
         </div>
       </div>
     </div>

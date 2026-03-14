@@ -26,6 +26,7 @@ export function Footer() {
                 alt="Prime Tv"
                 height={50}
                 width={100}
+                className="h-auto w-auto"
               />
             </Link>
             <p className="text-sm text-muted-foreground max-w-75">
