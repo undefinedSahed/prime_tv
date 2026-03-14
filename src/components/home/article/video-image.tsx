@@ -32,7 +32,7 @@ export default function VideoAndImage({
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
-          <div className="grid lg:grid-cols-2 gap-6 bg-background p-3 rounded-md">
+          <div className="grid grid-cols-2 lg:gap-6 gap-3 bg-background p-3 rounded-md">
             {videoArticles.map((video: videoArticles) => (
               <VideoArticleCard key={video.id} article={video} />
             ))}
@@ -53,7 +53,7 @@ export default function VideoAndImage({
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
-          <div className="grid lg:grid-cols-2 gap-6 bg-background p-3 rounded-md">
+          <div className="grid grid-cols-2 lg:gap-6 gap-3 bg-background p-3 rounded-md">
             {imageArticles.map((imageArticle: imageArticle) => (
               <ImageGalleryCard key={imageArticle.id} article={imageArticle} />
             ))}

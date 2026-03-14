@@ -14,11 +14,11 @@ export default function MainArticle({
   const firstArticle = mainArticles[0];
 
   return (
-    <div className="grid lg:grid-cols-7 gap-4 items-stretch">
+    <div className="grid lg:grid-cols-7 lg:gap-4 gap-2 items-stretch">
       {/* First Article */}
       <Link
         href={`/article/${firstArticle.slug}`}
-        className="col-span-5 bg-background p-3 rounded-lg lg:space-y-3"
+        className="lg:col-span-5 col-span-7 bg-background p-3 rounded-lg lg:space-y-3"
       >
         <Image
           src={firstArticle.coverImage}
@@ -46,7 +46,7 @@ export default function MainArticle({
       </Link>
 
       {/* Rest of the articles */}
-      <div className="col-span-2">
+      <div className="lg:col-span-2 col-span-7">
         <div className="flex flex-col gap-4">
           {mainArticles.slice(1).map((article) => (
             <Link

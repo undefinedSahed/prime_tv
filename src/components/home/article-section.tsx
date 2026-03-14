@@ -41,8 +41,8 @@ export default async function ArticleSection() {
   const imageArticles = await getImages();
 
   return (
-    <section className="lg:pb-5. pt-0">
-      <h1 className="lg:text-3xl font-bold lg:pb-3">{tArticle("headline")}</h1>
+    <section className="lg:pb-5 lg:py-0 py-2">
+      <h1 className="lg:text-3xl text-xl font-bold lg:pb-3">{tArticle("headline")}</h1>
       <ArticleTop threeArticles={topThreeArticles} />
       <SecondArticleSection secondArticles={secondArticles} />
       <SpecialArticle specialArticles={specialArticles} />
