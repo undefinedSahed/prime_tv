@@ -19,21 +19,21 @@ export default async function SearchPage({
     : [];
 
   return (
-    <div className="bg-gray-50/30 min-h-screen">
+    <div className="">
       <div className="container mx-auto px-4 py-8 max-w-5xl">
         {/* Search Input Area */}
-        <div className="mb-10">
+        <div className="mb-4">
           <SearchInput placeholder={t("placeholder")} />
         </div>
 
         {q?.trim() && (
           <>
             {/* Results Info */}
-            <div className="mb-10 space-y-3">
+            <div className="mb-4 space-y-2">
               <p className="text-gray-500 text-sm md:text-base font-medium tracking-wide">
                 {t("resultsFound", { count: articles.length })}
               </p>
-              <h1 className="text-2xl md:text-3xl font-bold text-gray-900 leading-tight">
+              <h1 className="text-lg md:text-xl font-bold text-gray-900 leading-tight">
                 {t("showingResults", { query: q })}
               </h1>
             </div>

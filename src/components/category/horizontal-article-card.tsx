@@ -44,7 +44,7 @@ export default function HorizontalArticleCard({ article }: HorizontalArticleCard
             </div>
           </div>
 
-          <h2 className="text-xl md:text-2xl font-bold text-gray-900 leading-tight group-hover:text-primary transition-colors line-clamp-2">
+          <h2 className="text-lg md:text-xl font-bold text-gray-900 leading-tight group-hover:text-primary transition-colors line-clamp-2">
             {article.title}
           </h2>
 

@@ -1,21 +1,8 @@
 import { getRelatedArticles, getSingleArticle } from "@/lib/api";
 import { Article } from "@/lib/types";
-import Image from "next/image";
 import React from "react";
-import {
-  Facebook,
-  Twitter,
-  Linkedin,
-  Share2,
-  Printer,
-  MessageCircle,
-  Timer
-} from "lucide-react";
 import NewsDetails from "@/components/news/news-details";
 import { getTranslations } from "next-intl/server";
-import { formatDistanceToNow } from "date-fns";
-import { bn } from "date-fns/locale";
-import Link from "next/link";
 import RelatedNewsCard from "@/components/news/related-news-card";
 
 export default async function CategoryPage({
@@ -27,7 +14,7 @@ export default async function CategoryPage({
   const { data: article }: { data: Article } = await getSingleArticle(slug);
 
   const tArticle = await getTranslations("article");
-  const relatedArticles = await getRelatedArticles(slug);
+  const relatedArticles = await getRelatedArticles();
 
   if (!article) return <div>Article not found</div>;
 

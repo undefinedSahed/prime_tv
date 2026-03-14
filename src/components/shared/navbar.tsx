@@ -87,7 +87,7 @@ export function Navbar() {
 
         {/* Right Side */}
         <div className="flex items-center gap-2 justify-end min-w-0">
-          {/* Mobile Only Navigation Controls */} 
+          {/* Mobile Only Navigation Controls */}
           <div className="flex lg:hidden items-center gap-2 min-[400px]:gap-3 sm:gap-4 shrink-0">
             {/* Live Button */}
             <Link href="/video/live" className="shrink-0 flex items-center justify-center gap-1.5 rounded-full bg-[#ff3b3b] px-3 py-1 text-white shadow-sm transition hover:scale-105 animate-shadow-blink">
@@ -101,8 +101,8 @@ export function Navbar() {
             </Link>
 
             {!isSearchPage && (
-              <button 
-                aria-label="Search" 
+              <button
+                aria-label="Search"
                 onClick={() => setIsSearchOpen(true)}
                 className="shrink-0 flex items-center justify-center p-1 text-gray-800 transition hover:text-black"
               >

@@ -196,7 +196,7 @@ export async function getSingleArticle(slug: string) {
 }
 
 // Get related articles
-export async function getRelatedArticles(slug: string) {
+export async function getRelatedArticles() {
   try {
     const articles = await api.get(`/web/articles`);
     const response = articles?.data?.data?.slice(0, 5)
