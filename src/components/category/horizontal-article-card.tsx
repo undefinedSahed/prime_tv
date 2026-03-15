@@ -10,14 +10,15 @@ interface HorizontalArticleCardProps {
   article: Article;
 }
 
-export default function HorizontalArticleCard({ article }: HorizontalArticleCardProps) {
+export default function HorizontalArticleCard({
+  article,
+}: HorizontalArticleCardProps) {
   return (
     <Link
       href={`/news/${article.slug}`}
       className="group block w-full last:border-0 py-3 transition-all hover:bg-gray-50/50 rounded-xl"
     >
       <div className="flex flex-col sm:flex-row gap-4 md:gap-6 items-start">
-
         {/* Image Container */}
         <div className="relative w-full sm:w-[240px] md:w-[280px] lg:w-[320px] aspect-video sm:aspect-16/10 shrink-0 overflow-hidden rounded-xl shadow-sm">
           <Image
@@ -33,10 +34,13 @@ export default function HorizontalArticleCard({ article }: HorizontalArticleCard
           <div className="flex items-center gap-1.5 mb-1">
             <Timer className="text-primary h-3.5 w-3.5" />
             <h5 className="text-[#f97316] text-sm font-semibold">
-              {formatDistanceToNow(new Date(article.createdAt || article.date), {
-                addSuffix: true,
-                locale: bn,
-              })}
+              {formatDistanceToNow(
+                new Date(article.createdAt || article.date),
+                {
+                  addSuffix: true,
+                  locale: bn,
+                },
+              )}
             </h5>
           </div>
 
@@ -45,7 +49,9 @@ export default function HorizontalArticleCard({ article }: HorizontalArticleCard
           </h2>
 
           <div
-            dangerouslySetInnerHTML={{ __html: article.details || article.excerpt }}
+            dangerouslySetInnerHTML={{
+              __html: article.details || article.excerpt,
+            }}
             className="line-clamp-2 sm:line-clamp-3 text-sm md:text-base font-normal text-gray-600 leading-relaxed"
           />
         </div>

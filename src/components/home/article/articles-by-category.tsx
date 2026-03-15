@@ -3,8 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Article, Category } from "@/lib/types";
 import { getArticles } from "@/lib/api";
-import { formatDistanceToNow } from "date-fns";
-import { bn } from "date-fns/locale";
+import { getLocale } from "next-intl/server";
+import { formatRelativeTime } from "@/utils/date-formatter";
 
 export default async function CategorySection({
   category,
@@ -13,6 +13,7 @@ export default async function CategorySection({
   category: Category;
   moreText: string;
 }) {
+  const currentLocale = await getLocale();
   // Fetching first 4 articles for this category
   const response = await getArticles({
     categoryId: category.id,
@@ -57,10 +58,7 @@ export default async function CategorySection({
             <Timer className="text-primary h-3 w-3" />
             <div className="text-primary">
               <h5 className="text-primary text-xs">
-                {formatDistanceToNow(new Date(featuredArticle.createdAt), {
-                  addSuffix: true,
-                  locale: navigator.language.startsWith("bn") ? bn : undefined,
-                })}
+                {formatRelativeTime(featuredArticle.createdAt, currentLocale)}
               </h5>
             </div>
           </div>
@@ -80,12 +78,7 @@ export default async function CategorySection({
               <Timer className="text-primary h-3 w-3" />
               <div className="text-primary">
                 <h5 className="text-primary text-xs">
-                  {formatDistanceToNow(new Date(article.createdAt), {
-                    addSuffix: true,
-                    locale: navigator.language.startsWith("bn")
-                      ? bn
-                      : undefined,
-                  })}
+                  {formatRelativeTime(article.createdAt, currentLocale)}
                 </h5>
               </div>
             </div>

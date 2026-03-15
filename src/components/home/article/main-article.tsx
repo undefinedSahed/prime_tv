@@ -1,11 +1,11 @@
 import { Article } from "@/lib/types";
 import Image from "next/image";
 import React from "react";
-import { formatDistanceToNow } from "date-fns";
 import { Timer } from "lucide-react";
-import { bn, enUS } from "date-fns/locale";
+import { bn } from "date-fns/locale";
 import Link from "next/link";
 import { useLocale } from "next-intl";
+import { formatRelativeTime } from "@/utils/date-formatter";
 
 export default function MainArticle({
   mainArticles,
@@ -34,10 +34,7 @@ export default function MainArticle({
           <Timer className="text-primary" />
           <div className="text-primary">
             <h5 className="text-primary">
-              {formatDistanceToNow(new Date(firstArticle.createdAt), {
-                addSuffix: true,
-                locale: currentLocale === "en" ? enUS : bn,
-              })}
+              {formatRelativeTime(firstArticle.createdAt, currentLocale)}
             </h5>
           </div>
         </div>
@@ -68,12 +65,7 @@ export default function MainArticle({
                 <Timer className="text-primary h-3 w-3" />
                 <div className="text-primary">
                   <h5 className="text-primary text-xs">
-                    {formatDistanceToNow(new Date(article.createdAt), {
-                      addSuffix: true,
-                      locale: navigator.language.startsWith("bn")
-                        ? bn
-                        : undefined,
-                    })}
+                    {formatRelativeTime(firstArticle.createdAt, currentLocale)}
                   </h5>
                 </div>
               </div>
