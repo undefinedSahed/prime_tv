@@ -9,10 +9,13 @@ const api = axios.create({
   proxy: false, // Prevents Axios from using `url.parse()` internally for proxy resolution
 });
 
-export interface videoArticles {
+export interface VideoArticle {
   id: number;
   title: string;
   youtubeUrl: string;
+  slug: string;
+  createdAt: string;
+  views?: string;
 }
 
 export interface imageArticle {
@@ -25,29 +28,90 @@ export interface imageArticle {
   }[];
 }
 
-const videoArticles: videoArticles[] = [
+const videoArticles: VideoArticle[] = [
   {
     id: 1,
-    title:
-      "সিলেটপুরের জঙ্গলে যৌথ বাহিনীর অভিযান: এলাকার জীবন ও অভিযানের গল্প উন্মোচন",
+    slug: "sylhet-forest-operation",
+    title: "সিলেটপুরের জঙ্গলে যৌথ বাহিনীর অভিযান: এলাকার জীবন ও অভিযানের গল্প উন্মোচন",
     youtubeUrl: "https://www.youtube.com/watch?v=ZNts0qvgnik",
+    createdAt: "2024-03-10T10:00:00Z",
   },
   {
     id: 2,
-    title:
-      "ইরান ও যুক্তরাষ্ট্র–ইসরাইল সংঘাত: তেলের বাজারে চাপ, বিশ্বে পণ্যমূল্য",
+    slug: "iran-usa-conflict-oil-market",
+    title: "ইরান ও যুক্তরাষ্ট্র–ইসরাইল সংঘাত: তেলের বাজারে চাপ, বিশ্বে পণ্যমূল্য",
     youtubeUrl: "https://www.youtube.com/watch?v=IZ-zSEoVUGg",
+    createdAt: "2024-03-11T12:00:00Z",
   },
   {
     id: 3,
+    slug: "middle-east-war-gainers",
     title: "মধ্যপ্রাচ্য যুদ্ধে সবচেয়ে বেশি লাভ কার? বিশ্বরাজনীতির নতুন সমীকরণ",
     youtubeUrl: "https://www.youtube.com/watch?v=xYLeX0EmuGQ",
+    createdAt: "2024-03-12T14:00:00Z",
   },
   {
     id: 4,
-    title:
-      "মধ্যপ্রাচ্য পরিস্থিতি: সংকটে দেশের আমদানি-রপ্তানি, বাড়ছে শিপিং খরচ",
+    slug: "middle-east-situation-import-export",
+    title: "মধ্যপ্রাচ্য পরিস্থিতি: সংকটে দেশের আমদানি-রপ্তানি, বাড়ছে শিপিং খরচ",
     youtubeUrl: "https://www.youtube.com/watch?v=DtdddxVkyp4",
+    createdAt: "2024-03-13T16:00:00Z",
+  },
+  {
+    id: 5,
+    slug: "eid-ticket-travel-agency",
+    title: "ঈদ সামনে রেখে মহাব্যস্ত দেশের ট্রাভেল এজেন্সিগুলো",
+    youtubeUrl: "https://www.youtube.com/watch?v=ZNts0qvgnik",
+    createdAt: "2024-03-14T08:00:00Z",
+  },
+  {
+    id: 6,
+    slug: "salimpur-forest-operation",
+    title: "সলিমপুরের জঙ্গলে যৌথ বাহিনীর অভিযান: এলাকার জীবন ও অধিপত্যের গল্প উন্মোচন",
+    youtubeUrl: "https://www.youtube.com/watch?v=IZ-zSEoVUGg",
+    createdAt: "2024-03-14T10:00:00Z",
+  },
+  {
+    id: 7,
+    slug: "global-oil-market-pressure",
+    title: "ভয়ঙ্কর চাপে বৈশ্বিক তেলের বাজার",
+    youtubeUrl: "https://www.youtube.com/watch?v=xYLeX0EmuGQ",
+    createdAt: "2024-03-14T12:00:00Z",
+  },
+  {
+    id: 8,
+    slug: "russia-oil-price-record",
+    title: "বিশ্ববাজারে তেলের দামের রেকর্ড বৃদ্ধি: রাশিয়ার ওপর থেকে নিষেধাজ্ঞা সরাচ্ছে যুক্তরাষ্ট্র",
+    youtubeUrl: "https://www.youtube.com/watch?v=DtdddxVkyp4",
+    createdAt: "2024-03-14T14:00:00Z",
+  },
+  {
+    id: 9,
+    slug: "middle-east-export-container",
+    title: "আটকে গেছে মধ্যপ্রাচ্যগামী রপ্তানি কনটেইনার",
+    youtubeUrl: "https://www.youtube.com/watch?v=ZNts0qvgnik",
+    createdAt: "2024-03-14T16:00:00Z",
+  },
+  {
+    id: 10,
+    slug: "women-freedom-empowerment",
+    title: "সামাজিক চিন্তায় নিজেদের স্বাধীনতার বাধা, স্বতন্ত্রতা ও আত্মবিশ্বাসই দিতে পারে নারীর মুক্তি",
+    youtubeUrl: "https://www.youtube.com/watch?v=IZ-zSEoVUGg",
+    createdAt: "2024-03-14T18:00:00Z",
+  },
+  {
+    id: 11,
+    slug: "another-video-1",
+    title: "সাম্প্রতিক ঘটনার বিশ্লেষণ এবং আগামী দিনের চ্যালেঞ্জ",
+    youtubeUrl: "https://www.youtube.com/watch?v=xYLeX0EmuGQ",
+    createdAt: "2024-03-15T08:00:00Z",
+  },
+  {
+    id: 12,
+    slug: "another-video-2",
+    title: "বিশ্ব অর্থনীতির বর্তমান গতিবিধি ও বাংলাদেশের প্রেক্ষাপট",
+    youtubeUrl: "https://www.youtube.com/watch?v=DtdddxVkyp4",
+    createdAt: "2024-03-15T10:00:00Z",
   },
 ];
 
@@ -208,10 +272,22 @@ export async function getRelatedArticles() {
 }
 
 // Get videos
-export async function getVideos() {
+export async function getVideos(query?: { page?: number; limit?: number }) {
   try {
-    const response = videoArticles;
-    return response;
+    const page = query?.page || 1;
+    const limit = query?.limit || 10;
+    const start = (page - 1) * limit;
+    const end = start + limit;
+    
+    return {
+      data: videoArticles.slice(start, end),
+      meta: {
+        total: videoArticles.length,
+        page,
+        limit,
+        totalPages: Math.ceil(videoArticles.length / limit),
+      }
+    };
   } catch (error) {
     console.error("Error fetching videos:", error);
     throw error;

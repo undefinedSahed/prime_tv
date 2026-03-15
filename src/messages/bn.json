@@ -28,7 +28,11 @@
     "showingResults": "\"{query}\" এর জন্য ফলাফল দেখানো হচ্ছে...",
     "noResults": "কোনো ফলাফল পাওয়া যায়নি"
   },
-
+  "recent": {
+    "title": "সর্বশেষ খবর",
+    "loadMore": "আরও সংবাদ দেখুন",
+    "noArticles": "কোনো সংবাদ পাওয়া যায়নি"
+  },
   "shareMarket": {
     "title": "শেয়ার বাজার"
   },
@@ -53,7 +57,9 @@
     "more": "আরও",
     "specialArticle": "বিশেষ প্রতিবেদন",
     "video": "ভিডিও",
+    "videoPageTitle": "সাম্প্রতিক ভিডিও",
     "image": "ছবি",
+    "imagePageTitle": "ছবির গল্প",
     "relatedArticle": "এই সম্পর্কিত অন্যান্য খবর"
   },
   "notFound": {
@@ -113,11 +119,11 @@
       ],
       "legal": [
         {
-          "name": "প্রাইভেসি",
+          "name": "গোপনীয়তা নীতি",
           "href": "/privacy"
         },
         {
-          "name": "টার্মস",
+          "name": "ব্যবহারের শর্তাবলী",
           "href": "/terms"
         },
         {
@@ -127,6 +133,21 @@
       ]
     },
     "copyright": "© {year} প্রাইম টিভি, সর্বস্বত্ব সংরক্ষিত। সম্প্রদায় দ্বারা নির্মিত ❤️",
+    "socialLabel": "সামাজিক যোগাযোগ মাধ্যম",
+    "companyInfoEn": {
+      "name": "Prime Television",
+      "subtitle": "Trusted | Timely | True",
+      "address": "SK Homes Ltd, 4th Floor, G.P- Ja-4, Mohakhali TB Gate, Gulshan, Dhaka-1212",
+      "phone": "Phone: +880 1618-954713",
+      "email": "Email: info@theprimetv.com"
+    },
+    "companyInfoBn": {
+      "name": "প্রাইম টেলিভশন",
+      "subtitle": "বিশ্বস্ত | সময়োপযোগী | সত্য",
+      "address": "এসকে হোমস লিমিটেড, ৪র্থ তলা, জি. পি- জ-৪, মহাখালী টিবি গেট, গুলশান, ঢাকা-১২১২",
+      "phone": "ফোন: +৮৮০ ১৬১৮-৯৫৪৭১৩",
+      "email": "ই-মেইল: info@theprimetv.com"
+    },
     "social": [
       {
         "name": "টুইটার",

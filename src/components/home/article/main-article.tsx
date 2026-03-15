@@ -3,8 +3,9 @@ import Image from "next/image";
 import React from "react";
 import { formatDistanceToNow } from "date-fns";
 import { Timer } from "lucide-react";
-import { bn } from "date-fns/locale";
+import { bn, enUS } from "date-fns/locale";
 import Link from "next/link";
+import { useLocale } from "next-intl";
 
 export default function MainArticle({
   mainArticles,
@@ -12,6 +13,8 @@ export default function MainArticle({
   mainArticles: Article[];
 }) {
   const firstArticle = mainArticles[0];
+
+  const currentLocale = useLocale();
 
   return (
     <div className="grid md:grid-cols-7 md:gap-4 gap-2 items-stretch">
@@ -33,7 +36,7 @@ export default function MainArticle({
             <h5 className="text-primary">
               {formatDistanceToNow(new Date(firstArticle.createdAt), {
                 addSuffix: true,
-                locale: navigator.language.startsWith("bn") ? bn : undefined,
+                locale: currentLocale === "en" ? enUS : bn,
               })}
             </h5>
           </div>

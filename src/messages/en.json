@@ -27,6 +27,11 @@
     "showingResults": "Showing results for: \"{query}\"...",
     "noResults": "No results found"
   },
+  "recent": {
+    "title": "Recent News",
+    "loadMore": "Load More",
+    "noArticles": "No articles found"
+  },
   "shareMarket": {
     "title": "Share Market"
   },
@@ -51,7 +56,9 @@
     "more": "More",
     "specialArticle": "Special Reports",
     "video": "Video",
+    "videoPageTitle": "Recent Videos",
     "image": "Image",
+    "imagePageTitle": "Image Story",
     "relatedArticle": "Other related news"
   },
   "notFound": {
@@ -125,6 +132,21 @@
       ]
     },
     "copyright": "© {year} Prime Tv Inc. All rights reserved. Built with ❤️ by the community.",
+    "socialLabel": "Social Media",
+    "companyInfoEn": {
+      "name": "Prime Television",
+      "subtitle": "Trusted Timely True ",
+      "address": "City Park lane, 19 Hatkhola Road, Wari\nDhaka-1203, Bangladesh",
+      "phone": "Phone: +8801324720001",
+      "email": "Email: info@ekhon.tv"
+    },
+    "companyInfoBn": {
+      "name": "এখন টেলিভিশন",
+      "subtitle": "স্পাইস টেলিভিশন লিমিটেড",
+      "address": "সিটি পার্ক লেন, ১৯ হাটখোলা রোড, ওয়ারী\nঢাকা-১২০৩, বাংলাদেশ",
+      "phone": "ফোন: +৮৮০১৩২৪৭২০০০১",
+      "email": "ই-মেইল: info@ekhon.tv"
+    },
     "social": [
       {
         "name": "Twitter",

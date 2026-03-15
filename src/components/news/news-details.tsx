@@ -68,7 +68,7 @@ export default function NewsDetails({ article }: { article: Article }) {
 
       {/* 5. Article Content (Rich Text) */}
       <article
-        className="prose prose-lg max-w-none text-gray-800 leading-relaxed
+        className="prose text-lg prose-lg max-w-none text-gray-800 leading-relaxed
           prose-headings:font-bold prose-p:mb-4 prose-strong:text-black"
         dangerouslySetInnerHTML={{ __html: article.details }}
       />
