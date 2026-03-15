@@ -21,16 +21,15 @@ export default function ShareMarket() {
   const tShare = useTranslations("shareMarket");
 
   return (
-    <div className="lg:py-6 py-2">
-      <div className="container">
+    <div className="w-full lg:py-6 py-2">
+      <div className="">
         <div className="relative flex h-14 w-full items-center overflow-hidden border-y bg-white shadow-sm rounded-md">
-          {/* Static Label (Z-index keeps it on top) */}
           <div className="z-20 flex h-full items-center bg-primary px-4 font-semibold text-primary-foreground whitespace-nowrap shadow-[4px_0px_10px_rgba(0,0,0,0.1)] text-sm">
             {tShare("title")}
           </div>
 
           {/* Framer Motion Container */}
-          <div className="flex flex-1 min-w-0 overflow-hidden">
+          <div className="flex flex-1 overflow-hidden">
             <motion.div
               className="flex whitespace-nowrap py-2"
               animate={{ x: ["0%", "-50%"] }}
