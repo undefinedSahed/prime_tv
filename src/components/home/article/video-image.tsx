@@ -1,4 +1,4 @@
-import { imageArticle, videoArticles } from "@/lib/api";
+import { imageArticle, VideoArticle,  } from "@/lib/api";
 import Link from "next/link";
 import React from "react";
 import VideoArticleCard from "./video-article-card";
@@ -10,7 +10,7 @@ export default function VideoAndImage({
   videoArticles,
   imageArticles,
 }: {
-  videoArticles: videoArticles[];
+  videoArticles: VideoArticle[];
   imageArticles: imageArticle[];
 }) {
   const tArticle = useTranslations("article");
@@ -33,7 +33,7 @@ export default function VideoAndImage({
             </Link>
           </div>
           <div className="grid grid-cols-2 lg:gap-6 gap-3 bg-background p-3 rounded-md">
-            {videoArticles.map((video: videoArticles) => (
+            {videoArticles.map((video: VideoArticle) => (
               <VideoArticleCard key={video.id} article={video} />
             ))}
           </div>
