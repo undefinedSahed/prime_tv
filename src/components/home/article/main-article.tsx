@@ -2,7 +2,6 @@ import { Article } from "@/lib/types";
 import Image from "next/image";
 import React from "react";
 import { Timer } from "lucide-react";
-import { bn } from "date-fns/locale";
 import Link from "next/link";
 import { useLocale } from "next-intl";
 import { formatRelativeTime } from "@/utils/date-formatter";
