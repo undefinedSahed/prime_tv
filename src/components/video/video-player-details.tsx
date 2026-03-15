@@ -1,7 +1,6 @@
 import { VideoArticle } from "@/lib/api";
+import { formatRelativeTime } from "@/utils/date-formatter";
 import { Timer, Share2, Facebook, Link2, MessageCircle, Linkedin } from "lucide-react";
-import { formatDistanceToNow } from "date-fns";
-import { bn, enUS } from "date-fns/locale";
 import { useLocale } from "next-intl";
 
 interface VideoPlayerDetailsProps {
@@ -18,8 +17,6 @@ export default function VideoPlayerDetails({ video }: VideoPlayerDetailsProps) {
   const videoId = getYouTubeID(video.youtubeUrl);
 
   const currentLocale = useLocale();
-
-  console.log("Locale: ", currentLocale, bn)
 
   return (
     <div className="flex flex-col gap-6">
@@ -39,10 +36,7 @@ export default function VideoPlayerDetails({ video }: VideoPlayerDetailsProps) {
         <div className="flex items-center gap-2 text-primary font-bold">
           <Timer className="h-5 w-5" />
           <span className="text-sm uppercase tracking-wide">
-            {formatDistanceToNow(new Date(video.createdAt), {
-              addSuffix: true,
-              locale: currentLocale === "en" ? enUS : bn,
-            })}
+            {formatRelativeTime(video.createdAt, currentLocale)}
           </span>
         </div>
 

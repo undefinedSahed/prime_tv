@@ -1,12 +1,14 @@
 import { Article } from "@/lib/types";
-import { formatDistanceToNow } from "date-fns";
 import { Timer } from "lucide-react";
 import Image from "next/image";
 import React from "react";
-import { bn } from "date-fns/locale";
 import Link from "next/link";
+import { useLocale } from "next-intl";
+import { formatRelativeTime } from "@/utils/date-formatter";
 
 export default function SecondArticleCard({ article }: { article: Article }) {
+
+  const currentLocale = useLocale();
 
   return (
     <Link href={`/news/${article.slug}`} className="group">
@@ -26,12 +28,7 @@ export default function SecondArticleCard({ article }: { article: Article }) {
               <Timer className="text-primary h-3 w-3" />
               <div className="text-primary">
                 <h5 className="text-primary lg:text-sm text-xs">
-                  {formatDistanceToNow(new Date(article.createdAt), {
-                    addSuffix: true,
-                    locale: navigator.language.startsWith("bn")
-                      ? bn
-                      : undefined,
-                  })}
+                  {formatRelativeTime(article.createdAt, currentLocale)}
                 </h5>
               </div>
             </div>

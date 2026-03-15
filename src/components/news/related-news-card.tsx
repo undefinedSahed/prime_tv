@@ -1,29 +1,34 @@
 import { Article } from "@/lib/types";
 import React from "react";
 import { Timer } from "lucide-react";
-import { formatDistanceToNow } from "date-fns";
-import { bn } from "date-fns/locale";
 import Link from "next/link";
 import Image from "next/image";
-
+import { useLocale } from "next-intl";
+import { formatRelativeTime } from "@/utils/date-formatter";
 
 export default function RelatedNewsCard({ article }: { article: Article }) {
+  const currentLocale = useLocale();
+
   return (
     <div>
-      <div key={article.id} className="border-t border-gray-200 py-3 group grid grid-cols-5 gap-2 items-center">
+      <div
+        key={article.id}
+        className="border-t border-gray-200 py-3 group grid grid-cols-5 gap-2 items-center"
+      >
         <div className="col-span-2">
-          <Image src={article.coverImage} alt={article.title} width={400} height={400} className="w-full h-full object-cover rounded-md" />
+          <Image
+            src={article.coverImage}
+            alt={article.title}
+            width={400}
+            height={400}
+            className="w-full h-full object-cover rounded-md"
+          />
         </div>
         <div className="col-span-3">
           <div className="flex items-center gap-1">
             <Timer className="text-primary h-3 w-3" />
             <h5 className="text-primary text-xs">
-              {formatDistanceToNow(new Date(article.createdAt), {
-                addSuffix: true,
-                locale: navigator.language.startsWith("bn")
-                  ? bn
-                  : undefined,
-              })}
+              {formatRelativeTime(article.createdAt, currentLocale)}
             </h5>
           </div>
           <Link href={`/news/${article.slug}`}>
@@ -34,5 +39,5 @@ export default function RelatedNewsCard({ article }: { article: Article }) {
         </div>
       </div>
     </div>
-  )
+  );
 }

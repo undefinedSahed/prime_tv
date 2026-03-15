@@ -1,8 +1,7 @@
 import { Article } from "@/lib/types";
-import { formatDistanceToNow } from "date-fns";
-import { bn } from "date-fns/locale";
+import { formatRelativeTime } from "@/utils/date-formatter";
 import { ArrowRight, Timer } from "lucide-react";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -13,6 +12,7 @@ export default async function SpecialArticle({
   specialArticles: Article[];
 }) {
   const tArticle = await getTranslations("article");
+  const currentLocale = await getLocale();
 
   const firstSpecialArticle = specialArticles[0];
   const restFourSpecialArticles = specialArticles.slice(1, 6);
@@ -50,10 +50,10 @@ export default async function SpecialArticle({
             <div className="flex items-center gap-1">
               <Timer className="text-primary-foreground h-3 w-3" />
               <h5 className="text-primary-foreground text-xs">
-                {formatDistanceToNow(new Date(firstSpecialArticle.createdAt), {
-                  addSuffix: true,
-                  locale: navigator.language.startsWith("bn") ? bn : undefined,
-                })}
+                {formatRelativeTime(
+                  firstSpecialArticle.createdAt,
+                  currentLocale,
+                )}
               </h5>
             </div>
             <h3 className="text-lg text-primary-foreground font-semibold  ">
@@ -83,12 +83,7 @@ export default async function SpecialArticle({
                 <div className="flex items-center gap-1">
                   <Timer className="h-3 w-3" />
                   <h5 className="text-xs">
-                    {formatDistanceToNow(new Date(article.createdAt), {
-                      addSuffix: true,
-                      locale: navigator.language.startsWith("bn")
-                        ? bn
-                        : undefined,
-                    })}
+                    {formatRelativeTime(article.createdAt, currentLocale)}
                   </h5>
                 </div>
                 <h3 className="text-base font-semibold group-hover:underline">
