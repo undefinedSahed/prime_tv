@@ -116,6 +116,73 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+@media print {
+  /* Control margins for all pages - this fixes the padding on Page 2 */
+  @page {
+    margin: 15mm 10mm;
+  }
+
+  /* Center the browser-style meta info at the very top */
+  body::before {
+    content: "3/16/26, 11:56 AM | Prime Tv | Trusted, Timely, True";
+    display: block;
+    text-align: center;
+    font-size: 9pt;
+    color: #374151;
+    margin-bottom: 5mm;
+    width: 100%;
+  }
+
+  nav,
+  footer,
+  aside,
+  .sidebar,
+  .navbar,
+  header,
+  .no-print {
+    display: none !important;
+  }
+
+  body,
+  html,
+  main {
+    background: white !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  #article-content,
+  .print-header {
+    display: block !important;
+    width: 100% !important;
+    visibility: visible !important;
+  }
+
+  /* Vertical centering for header elements */
+  .print-header {
+    display: flex !important;
+    align-items: center !important; /* Vertically centers the logo and text */
+    justify-content: space-between !important;
+  }
+
+  h1 {
+    font-size: 18pt !important;
+    margin-bottom: 1rem !important;
+    color: black !important;
+  }
+
+  .article-body p {
+    margin-bottom: 12pt !important;
+    line-height: 1.5;
+  }
+
+  .print\:hidden {
+    display: none !important;
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

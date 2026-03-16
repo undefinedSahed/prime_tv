@@ -26,7 +26,7 @@ export default async function CategoryPage({
       </div>
 
       {/* Related Articles Part */}
-      <div className="lg:col-span-1 col-span-3 bg-background rounded-md p-3">
+      <div className="lg:col-span-1 col-span-3 bg-background rounded-md p-3 no-print">
         <div className="flex items-center gap-3 border-l-4 border-primary pl-3 m-4">
           <h2 className="text-xl font-bold text-gray-900">
             {tArticle("relatedArticle")}
