@@ -23,7 +23,7 @@ export default function ImageGalleryCard({ article }: ImageGalleryCardProps) {
 
           {/* Main Image Container */}
           <div className="relative aspect-video w-full overflow-hidden rounded-xl shadow-md border border-gray-100">
-            <Image
+            <Image priority
               src={mainImage}
               alt={article.title}
               fill

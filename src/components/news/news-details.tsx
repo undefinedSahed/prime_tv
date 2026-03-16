@@ -9,7 +9,7 @@ export default function NewsDetails({ article }: { article: Article }) {
       {/* print header - Added flex and items-center for vertical alignment */}
       <div className="hidden print:flex print-header items-center justify-between border-b-2 border-red-600 pb-2 mb-3">
         <div className="flex items-center">
-          <Image
+          <Image priority
             width={200}
             height={200}
             src="/images/logo.png"

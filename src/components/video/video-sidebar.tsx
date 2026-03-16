@@ -32,7 +32,7 @@ export default function ImageStorySidebar({ images, t }: ImageStorySidebarProps)
             <div key={image.id} className="">
               <Link href={`/gallery/${image.id}`} className="group flex gap-4 items-center">
                 <div className="relative w-24 h-24 shrink-0 rounded-lg overflow-hidden border border-white shadow-sm">
-                  <Image
+                  <Image priority
                     width={100}
                     height={100}
                     src={image.images?.[0]?.url || "/placeholder.jpg"}

@@ -14,7 +14,7 @@ export function Footer() {
           {/* Section 1: Logo */}
           <div className="lg:col-span-3 flex justify-center lg:justify-start">
             <Link href="/" className="block">
-              <Image
+              <Image priority
                 src="/images/logo.png"
                 alt="Ekhon TV"
                 height={80}

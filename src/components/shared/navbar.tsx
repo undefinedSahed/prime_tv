@@ -58,7 +58,7 @@ export function Navbar() {
         {/* Left Side: Logo and Desktop Navigation */}
         <div className="flex items-center gap-4 lg:gap-6 shrink-0">
           <Link href="/" className="flex items-center gap-2 shrink-0">
-            <Image
+            <Image priority
               src="/images/logo.png"
               alt="Prime Tv"
               height={40}

@@ -24,6 +24,7 @@ export interface ArticleQueryParams {
   authorId?: string; // author uuid
   type?: "news" | "poll" | "series" | "stories";
   status?: "Drafted" | "Published" | "Archived";
+  topics?: string[];
 }
 
 export interface Author {

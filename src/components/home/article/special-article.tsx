@@ -39,7 +39,7 @@ export default async function SpecialArticle({
           href={`/news/${firstSpecialArticle.slug}`}
           className="bg-primary/80 rounded-md"
         >
-          <Image
+          <Image priority
             src={firstSpecialArticle.coverImage}
             alt={firstSpecialArticle.title}
             height={1000}
@@ -71,7 +71,7 @@ export default async function SpecialArticle({
               className="group grid-cols-12 grid items-center gap-2"
             >
               <div className="col-span-3">
-                <Image
+                <Image priority
                   src={article.coverImage}
                   alt={article.title}
                   height={1000}

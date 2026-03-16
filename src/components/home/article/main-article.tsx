@@ -22,7 +22,7 @@ export default function MainArticle({
         href={`/news/${firstArticle.slug}`}
         className="md:col-span-5 col-span-7 bg-background p-3 rounded-lg md:space-y-3"
       >
-        <Image
+        <Image priority
           src={firstArticle.coverImage}
           alt={firstArticle.title}
           height={1000}
@@ -53,7 +53,7 @@ export default function MainArticle({
               key={article.id}
               className="p-3 bg-background rounded-md lg:space-y-2"
             >
-              <Image
+              <Image priority
                 src={article.coverImage}
                 alt={article.title}
                 height={1000}

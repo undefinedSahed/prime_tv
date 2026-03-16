@@ -6,7 +6,10 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL;
 const api = axios.create({
   baseURL: API_URL,
   withCredentials: true,
-  proxy: false, // Prevents Axios from using `url.parse()` internally for proxy resolution
+  paramsSerializer: {
+    indexes: null,
+  },
+  proxy: false,
 });
 
 export interface VideoArticle {
@@ -32,14 +35,16 @@ const videoArticles: VideoArticle[] = [
   {
     id: 1,
     slug: "sylhet-forest-operation",
-    title: "সিলেটপুরের জঙ্গলে যৌথ বাহিনীর অভিযান: এলাকার জীবন ও অভিযানের গল্প উন্মোচন",
+    title:
+      "সিলেটপুরের জঙ্গলে যৌথ বাহিনীর অভিযান: এলাকার জীবন ও অভিযানের গল্প উন্মোচন",
     youtubeUrl: "https://www.youtube.com/watch?v=ZNts0qvgnik",
     createdAt: "2024-03-10T10:00:00Z",
   },
   {
     id: 2,
     slug: "iran-usa-conflict-oil-market",
-    title: "ইরান ও যুক্তরাষ্ট্র–ইসরাইল সংঘাত: তেলের বাজারে চাপ, বিশ্বে পণ্যমূল্য",
+    title:
+      "ইরান ও যুক্তরাষ্ট্র–ইসরাইল সংঘাত: তেলের বাজারে চাপ, বিশ্বে পণ্যমূল্য",
     youtubeUrl: "https://www.youtube.com/watch?v=IZ-zSEoVUGg",
     createdAt: "2024-03-11T12:00:00Z",
   },
@@ -53,7 +58,8 @@ const videoArticles: VideoArticle[] = [
   {
     id: 4,
     slug: "middle-east-situation-import-export",
-    title: "মধ্যপ্রাচ্য পরিস্থিতি: সংকটে দেশের আমদানি-রপ্তানি, বাড়ছে শিপিং খরচ",
+    title:
+      "মধ্যপ্রাচ্য পরিস্থিতি: সংকটে দেশের আমদানি-রপ্তানি, বাড়ছে শিপিং খরচ",
     youtubeUrl: "https://www.youtube.com/watch?v=DtdddxVkyp4",
     createdAt: "2024-03-13T16:00:00Z",
   },
@@ -67,7 +73,8 @@ const videoArticles: VideoArticle[] = [
   {
     id: 6,
     slug: "salimpur-forest-operation",
-    title: "সলিমপুরের জঙ্গলে যৌথ বাহিনীর অভিযান: এলাকার জীবন ও অধিপত্যের গল্প উন্মোচন",
+    title:
+      "সলিমপুরের জঙ্গলে যৌথ বাহিনীর অভিযান: এলাকার জীবন ও অধিপত্যের গল্প উন্মোচন",
     youtubeUrl: "https://www.youtube.com/watch?v=IZ-zSEoVUGg",
     createdAt: "2024-03-14T10:00:00Z",
   },
@@ -81,7 +88,8 @@ const videoArticles: VideoArticle[] = [
   {
     id: 8,
     slug: "russia-oil-price-record",
-    title: "বিশ্ববাজারে তেলের দামের রেকর্ড বৃদ্ধি: রাশিয়ার ওপর থেকে নিষেধাজ্ঞা সরাচ্ছে যুক্তরাষ্ট্র",
+    title:
+      "বিশ্ববাজারে তেলের দামের রেকর্ড বৃদ্ধি: রাশিয়ার ওপর থেকে নিষেধাজ্ঞা সরাচ্ছে যুক্তরাষ্ট্র",
     youtubeUrl: "https://www.youtube.com/watch?v=DtdddxVkyp4",
     createdAt: "2024-03-14T14:00:00Z",
   },
@@ -95,7 +103,8 @@ const videoArticles: VideoArticle[] = [
   {
     id: 10,
     slug: "women-freedom-empowerment",
-    title: "সামাজিক চিন্তায় নিজেদের স্বাধীনতার বাধা, স্বতন্ত্রতা ও আত্মবিশ্বাসই দিতে পারে নারীর মুক্তি",
+    title:
+      "সামাজিক চিন্তায় নিজেদের স্বাধীনতার বাধা, স্বতন্ত্রতা ও আত্মবিশ্বাসই দিতে পারে নারীর মুক্তি",
     youtubeUrl: "https://www.youtube.com/watch?v=IZ-zSEoVUGg",
     createdAt: "2024-03-14T18:00:00Z",
   },
@@ -223,6 +232,7 @@ export const imageArticles: imageArticle[] = [
   },
 ];
 
+// Get categories
 export async function getAllcategories(query?: CategoryQueryParam) {
   try {
     const response = await api.get("/web/categories", {
@@ -231,6 +241,17 @@ export async function getAllcategories(query?: CategoryQueryParam) {
     return response.data;
   } catch (error) {
     console.error("Error fetching categories:", error);
+    throw error;
+  }
+}
+
+// Get trending topics/tags
+export async function getTrendingTopics() {
+  try {
+    const response = await api.get("/web/tags");
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching trending topics:", error);
     throw error;
   }
 }
@@ -260,11 +281,10 @@ export async function getSingleArticle(slug: string) {
 }
 
 // Get related articles
-export async function getRelatedArticles() {
+export async function getRelatedArticles(id: string) {
   try {
-    const articles = await api.get(`/web/articles`);
-    const response = articles?.data?.data?.slice(0, 5)
-    return response;
+    const response = await api.get(`/web/articles/${id}/related`);
+    return response.data.data;
   } catch (error) {
     console.error("Error fetching related articles:", error);
     throw error;
@@ -278,7 +298,7 @@ export async function getVideos(query?: { page?: number; limit?: number }) {
     const limit = query?.limit || 10;
     const start = (page - 1) * limit;
     const end = start + limit;
-    
+
     return {
       data: videoArticles.slice(start, end),
       meta: {
@@ -286,7 +306,7 @@ export async function getVideos(query?: { page?: number; limit?: number }) {
         page,
         limit,
         totalPages: Math.ceil(videoArticles.length / limit),
-      }
+      },
     };
   } catch (error) {
     console.error("Error fetching videos:", error);

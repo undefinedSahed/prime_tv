@@ -11,10 +11,12 @@ export default async function CategoryPage({
   params: Promise<{ locale: string; slug: string }>;
 }) {
   const { slug } = await params;
-  const { data: article }: { data: Article } = await getSingleArticle(slug);
+  const decodedSlug = decodeURIComponent(slug);
+  const { data: article }: { data: Article } =
+    await getSingleArticle(decodedSlug);
 
   const tArticle = await getTranslations("article");
-  const relatedArticles = await getRelatedArticles();
+  const { articles: relatedArticles } = await getRelatedArticles(article.id);
 
   if (!article) return <div>Article not found</div>;
 

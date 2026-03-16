@@ -36,7 +36,7 @@ export default function VideoCard({
         <div
           className={`relative aspect-video w-full overflow-hidden rounded-2xl shadow-sm border border-gray-100 ${isFeatured ? "ring-1 ring-gray-100 shadow-md" : ""}`}
         >
-          <Image
+          <Image priority
             src={thumbnail}
             alt={video.title}
             fill

@@ -35,7 +35,7 @@ export default async function CategorySection({
           </h2>
         </div>
         <Link
-          href={`/news?categoryId=${category.id}`}
+          href={`/category/${category.slug}`}
           className="flex items-center gap-1 text-orange-800 hover:text-primary transition-colors"
         >
           <span className="text-sm font-bold">{moreText}</span>
@@ -47,7 +47,7 @@ export default async function CategorySection({
       {featuredArticle && (
         <div className="group cursor-pointer">
           <div className="relative aspect-16/10 w-full overflow-hidden rounded-xl mb-3">
-            <Image
+            <Image priority
               src={featuredArticle.coverImage}
               alt={featuredArticle.title}
               fill

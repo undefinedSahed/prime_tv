@@ -73,7 +73,7 @@ export default function BazarPricing() {
           >
             {/* Image Section */}
             <div className="relative w-24 aspect-square rounded-xl shrink-0 overflow-hidden">
-              <Image
+              <Image priority
                 src={currentItem.img}
                 alt={currentItem.title}
                 fill

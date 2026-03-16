@@ -34,7 +34,7 @@ export default function VideoArticleCard({ article }: VideoCardProps) {
       <div className="flex flex-col gap-3">
         {/* Thumbnail Container */}
         <div className="relative aspect-video w-full overflow-hidden rounded-lg shadow-sm">
-          <Image
+          <Image priority
             src={thumbnail}
             alt={article.title}
             fill

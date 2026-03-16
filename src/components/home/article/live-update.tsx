@@ -14,7 +14,7 @@ export default function LiveUpdate() {
     <div className="border-2 border-red-500 rounded-2xl overflow-hidden bg-white p-1">
       {/* Top Image Section */}
       <div className="relative w-full aspect-1/0.5 rounded-t-xl overflow-hidden">
-        <Image
+        <Image priority
           src="https://placehold.co/300x150/png"
           alt="Live Update"
           fill

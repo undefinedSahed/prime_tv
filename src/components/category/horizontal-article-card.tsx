@@ -21,7 +21,7 @@ export default function HorizontalArticleCard({
       <div className="flex flex-col sm:flex-row gap-4 md:gap-6 items-start">
         {/* Image Container */}
         <div className="relative w-full sm:w-[240px] md:w-[280px] lg:w-[320px] aspect-video sm:aspect-16/10 shrink-0 overflow-hidden rounded-xl shadow-sm">
-          <Image
+          <Image priority
             src={article.coverImage}
             alt={article.title}
             fill
