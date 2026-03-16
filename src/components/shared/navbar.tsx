@@ -63,7 +63,7 @@ export function Navbar() {
               alt="Prime Tv"
               height={40}
               width={80}
-              className="w-20 md:w-[100px] h-auto"
+              className="w-20 md:w-25 h-auto"
             />
           </Link>
 
@@ -90,14 +90,27 @@ export function Navbar() {
           {/* Mobile Only Navigation Controls */}
           <div className="flex lg:hidden items-center gap-2 min-[400px]:gap-3 sm:gap-4 shrink-0">
             {/* Live Button */}
-            <Link href="/video/live" className="shrink-0 flex items-center justify-center gap-1.5 rounded-full bg-[#ff3b3b] px-3 py-1 text-white shadow-sm transition hover:scale-105 animate-shadow-blink">
-              <Video className="h-4 w-4 fill-transparent stroke-white" strokeWidth={2} />
-              <span className="text-[11px] sm:text-xs font-bold tracking-tight whitespace-nowrap">{tLive("label")}</span>
+            <Link
+              href="/video/live"
+              className="shrink-0 flex items-center justify-center gap-1.5 rounded-full bg-[#ff3b3b] px-3 py-1 text-white shadow-sm transition hover:scale-105 animate-shadow-blink"
+            >
+              <Video
+                className="h-4 w-4 fill-transparent stroke-white"
+                strokeWidth={2}
+              />
+              <span className="text-[11px] sm:text-xs font-bold tracking-tight whitespace-nowrap">
+                {tLive("label")}
+              </span>
             </Link>
 
-            <Link href="/articles?type=image" className="shrink-0 flex items-center justify-center gap-1.5 rounded-md bg-[#fff4e5] px-3 py-1 text-[#f97316] transition hover:scale-105">
+            <Link
+              href="/articles?type=image"
+              className="shrink-0 flex items-center justify-center gap-1.5 rounded-md bg-[#fff4e5] px-3 py-1 text-[#f97316] transition hover:scale-105"
+            >
               <Camera className="h-4 w-4" strokeWidth={2} />
-              <span className="text-[11px] sm:text-xs font-bold tracking-tight whitespace-nowrap text-[#f97316]">{tImage("lastLabel")}</span>
+              <span className="text-[11px] sm:text-xs font-bold tracking-tight whitespace-nowrap text-[#f97316]">
+                {tImage("lastLabel")}
+              </span>
             </Link>
 
             {!isSearchPage && (
@@ -112,10 +125,13 @@ export function Navbar() {
 
             <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
               <SheetTitle className="sr-only">Menu</SheetTitle>
-              <SheetTrigger aria-label="Open menu" className="shrink-0 flex items-center justify-center p-1">
+              <SheetTrigger
+                aria-label="Open menu"
+                className="shrink-0 flex items-center justify-center p-1"
+              >
                 <Menu className="h-6 w-6 sm:h-7 sm:w-7 text-gray-800" />
               </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] sm:w-[400px] p-0">
+              <SheetContent side="right" className="w-75 sm:w-100 p-0">
                 <LiveClock />
                 <CategorySidebar onClose={() => setIsSheetOpen(false)} />
               </SheetContent>
@@ -125,8 +141,15 @@ export function Navbar() {
           {!isSearchPage && (
             <div className="hidden lg:flex items-center gap-4">
               <LanguageSwitcher />
-              <form onSubmit={handleSearchSubmit} className="relative w-full max-w-md group">
-                <button type="submit" aria-label="Submit Search" className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground transition-colors group-focus-within:text-foreground">
+              <form
+                onSubmit={handleSearchSubmit}
+                className="relative w-full max-w-md group"
+              >
+                <button
+                  type="submit"
+                  aria-label="Submit Search"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground transition-colors group-focus-within:text-foreground"
+                >
                   <Search className="h-5 w-5" />
                 </button>
                 <Input
@@ -149,7 +172,10 @@ export function Navbar() {
         {/* Mobile Search Overlay */}
         {isSearchOpen && (
           <div className="absolute inset-0 z-50 flex items-center bg-[#f7f8f9] lg:hidden w-full h-full px-4 border-b">
-            <form onSubmit={handleSearchSubmit} className="flex h-full w-full items-center justify-between gap-2">
+            <form
+              onSubmit={handleSearchSubmit}
+              className="flex h-full w-full items-center justify-between gap-2"
+            >
               <Input
                 type="text"
                 autoFocus

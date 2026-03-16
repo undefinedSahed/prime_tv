@@ -4,23 +4,27 @@ import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import {
   Facebook,
-  Twitter,
   Linkedin,
-  MessageCircle,
   Printer,
-  Share2,
+  Link as LinkIcon,
+  MessageCircleMore,
 } from "lucide-react";
-import { Button } from "../ui/button";
 
 interface SocialShareProps {
   title: string;
 }
 
+// Custom X (formerly Twitter) Icon to match your image exactly
+const XIcon = ({ size = 20 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932 6.064-6.932zm-1.292 19.494h2.039L6.486 3.24H4.298l13.311 17.407z" />
+  </svg>
+);
+
 const SocialShare = ({ title }: SocialShareProps) => {
   const pathname = usePathname();
   const [origin, setOrigin] = useState("");
 
-  // Get the base URL only after the component mounts to avoid hydration mismatch
   useEffect(() => {
     setOrigin(window.location.origin);
   }, []);
@@ -31,7 +35,7 @@ const SocialShare = ({ title }: SocialShareProps) => {
 
   const shareLinks = {
     facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
-    twitter: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
+    x: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
     linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
     whatsapp: `https://api.whatsapp.com/send?text=${encodedTitle}%20${encodedUrl}`,
   };
@@ -40,78 +44,68 @@ const SocialShare = ({ title }: SocialShareProps) => {
     window.open(link, "_blank", "width=600,height=400,noopener,noreferrer");
   };
 
-  const handlePrint = () => window.print();
-
-  const handleNativeShare = async () => {
-    if (navigator.share) {
-      try {
-        await navigator.share({ title, url: fullUrl });
-      } catch (err) {
-        console.error("User cancelled or error sharing:", err);
-      }
-    } else {
-      navigator.clipboard.writeText(fullUrl);
-      alert("Link copied to clipboard!");
-    }
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(fullUrl);
+    alert("Link copied to clipboard!");
   };
 
-  if (!origin) return <div className="h-10.5 mb-8" />;
+  if (!origin) return <div className="h-15 mb-8" />;
 
   return (
-    <div className="flex items-center gap-3 mb-8 py-2 border-y border-gray-100">
-      {/* Facebook */}
-      <Button
+    <div className="flex items-center gap-4 mb-8 py-4 border-y border-gray-100 print:hidden">
+      {/* Facebook - Light Blue Bg */}
+      <button
         onClick={() => openPopup(shareLinks.facebook)}
-        className="p-2 rounded-full bg-blue-100 text-blue-600 hover:bg-blue-200 transition"
-        aria-label="Share on Facebook"
+        className="p-3 rounded-full bg-[#E7F0FF] text-[#1877F2] hover:bg-blue-200 transition-all cursor-pointer"
+        title="Share on Facebook"
       >
-        <Facebook size={20} />
-      </Button>
+        <Facebook size={20} fill="currentColor" stroke="none" />
+      </button>
 
-      {/* Twitter / X */}
-      <Button
-        onClick={() => openPopup(shareLinks.twitter)}
-        className="p-2 rounded-full bg-gray-100 text-gray-800 hover:bg-gray-200 transition"
-        aria-label="Share on Twitter"
+      {/* X (Twitter) - Light Gray Bg */}
+      <button
+        onClick={() => openPopup(shareLinks.x)}
+        className="p-3 rounded-full bg-[#E7E7E8] text-black hover:bg-gray-300 transition-all cursor-pointer"
+        title="Share on X"
       >
-        <Twitter size={20} />
-      </Button>
+        <XIcon size={16} />
+      </button>
 
-      {/* LinkedIn */}
-      <Button
+      {/* LinkedIn - Specific Blue Bg */}
+      <button
         onClick={() => openPopup(shareLinks.linkedin)}
-        className="p-2 rounded-full bg-blue-50 text-blue-700 hover:bg-blue-100 transition"
-        aria-label="Share on LinkedIn"
+        className="p-3 rounded-full bg-[#E5EEFF] text-[#0077B5] hover:bg-blue-200 transition-all cursor-pointer"
+        title="Share on LinkedIn"
       >
-        <Linkedin size={20} />
-      </Button>
+        <Linkedin size={20} fill="currentColor" stroke="none" />
+      </button>
 
-      {/* WhatsApp */}
-      <Button
+      {/* WhatsApp - Light Green Bg */}
+      <button
         onClick={() => openPopup(shareLinks.whatsapp)}
-        className="p-2 rounded-full bg-green-100 text-green-600 hover:bg-green-200 transition"
-        aria-label="Share on WhatsApp"
+        className="p-3 rounded-full bg-[#E7F9ED] text-[#24b459] hover:bg-green-200 transition-all cursor-pointer"
+        title="Share on WhatsApp"
       >
-        <MessageCircle size={20} />
-      </Button>
+        <MessageCircleMore size={20} />
+      </button>
 
-      {/* Print */}
-      <Button
-        onClick={handlePrint}
-        className="p-2 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 transition"
-        aria-label="Print Article"
+      {/* Print - Classic Gray Bg */}
+      <button
+        onClick={() => window.print()}
+        className="p-3 rounded-full bg-[#EBECEF] text-[#374151] hover:bg-gray-300 transition-all cursor-pointer"
+        title="Print Article"
       >
         <Printer size={20} />
-      </Button>
+      </button>
 
-      {/* Native Share / Copy */}
-      <Button
-        onClick={handleNativeShare}
-        className="p-2 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 transition ml-auto"
-        aria-label="More share options"
+      {/* Copy Link - White/Gray Bg */}
+      <button
+        onClick={copyToClipboard}
+        className="p-3 rounded-full bg-[#F3F4F6] text-[#4B5563] hover:bg-gray-200 transition-all cursor-pointer"
+        title="Copy Link"
       >
-        <Share2 size={20} />
-      </Button>
+        <LinkIcon size={20} />
+      </button>
     </div>
   );
 };

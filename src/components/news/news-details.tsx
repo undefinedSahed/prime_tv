@@ -53,7 +53,7 @@ export default function NewsDetails({ article }: { article: Article }) {
         </div>
 
         {/* Removed print:h-75 and used relative container with aspect ratio for better print support */}
-        <div className="relative w-full aspect-video rounded-lg overflow-hidden mb-4 print:max-h-[350px]">
+        <div className="relative w-full aspect-video rounded-lg overflow-hidden mb-4 print:max-h-87.5">
           <Image
             src={article.coverImage}
             alt={article.title}
@@ -62,8 +62,8 @@ export default function NewsDetails({ article }: { article: Article }) {
             className="object-cover"
           />
         </div>
-        <p className="text-sm text-gray-500 mb-6 italic">
-          {article.category.titleBn}, {article.author.nameBn}
+        <p className="text-sm text-gray-500 mb-6">
+          {article.category.titleBn} | {article.author.nameBn}
         </p>
 
         <div className="print:hidden">
