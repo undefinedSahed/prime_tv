@@ -6,47 +6,24 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { MarketPrice } from "@/lib/types";
 
-export default function BazarPricing() {
+export default function BazarPricing({
+  marketPricing,
+}: {
+  marketPricing: MarketPrice[];
+}) {
   const tArticle = useTranslations("article");
   const [index, setIndex] = useState(0);
 
-  const pricingDummyData = [
-    {
-      id: 1,
-      title: "পেঁয়াজ",
-      tag: "(দেশি)",
-      price: "২০০",
-      unit: "টাকা/কেজি",
-      img: "https://placehold.co/100x100/png",
-    },
-    {
-      id: 2,
-      title: "আলু",
-      tag: "(দেশি)",
-      price: "৬০",
-      unit: "টাকা/কেজি",
-      img: "https://placehold.co/100x100/png",
-    },
-    {
-      id: 3,
-      title: "রসুন",
-      tag: "(চায়না)",
-      price: "২২০",
-      unit: "টাকা/কেজি",
-      img: "https://placehold.co/100x100/png",
-    },
-  ];
-
   useEffect(() => {
     const timer = setInterval(() => {
-      setIndex((prevIndex) => (prevIndex + 1) % pricingDummyData.length);
+      setIndex((prevIndex) => (prevIndex + 1) % marketPricing.length);
     }, 3000);
     return () => clearInterval(timer);
-  }, [pricingDummyData.length]);
+  }, [marketPricing.length]);
 
-  const currentItem = pricingDummyData[index];
-
+  const currentItem = marketPricing[index];
   return (
     <div className="p-3 bg-white rounded-xl shadow-sm border border-gray-100 lg:space-y-3">
       {/* Header */}
@@ -54,7 +31,10 @@ export default function BazarPricing() {
         <h2 className="text-xl font-bold text-gray-800">
           {tArticle("bazarPricing")}
         </h2>
-        <Link href="/pricing" className="flex items-center gap-1 text-primary cursor-pointer hover:underline">
+        <Link
+          href="/pricing"
+          className="flex items-center gap-1 text-primary cursor-pointer hover:underline"
+        >
           <span className="text-sm font-medium">{tArticle("more")}</span>
           <ArrowRight className="w-4 h-4" />
         </Link>
@@ -64,7 +44,7 @@ export default function BazarPricing() {
       <div className="relative overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.div
-            key={currentItem.id}
+            key={index}
             initial={{ opacity: 0, x: 10 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -10 }}
@@ -73,8 +53,11 @@ export default function BazarPricing() {
           >
             {/* Image Section */}
             <div className="relative w-24 aspect-square rounded-xl shrink-0 overflow-hidden">
-              <Image priority
-                src={currentItem.img}
+              <Image
+                priority
+                src={
+                  currentItem.coverImage || "https://placehold.co/100x100/png"
+                }
                 alt={currentItem.title}
                 fill
                 className="object-cover rounded-xl p-2"
@@ -85,15 +68,9 @@ export default function BazarPricing() {
             <div className="flex flex-col gap-1">
               <h3 className="text-base font-semibold text-gray-700">
                 {currentItem.title}{" "}
-                <span className="text-sm font-normal text-gray-500">
-                  {currentItem.tag}
-                </span>
               </h3>
               <p className="text-base font-bold text-gray-900">
-                {currentItem.price}{" "}
-                <span className="text-base font-normal text-gray-600">
-                  ({currentItem.unit})
-                </span>
+                {currentItem.priceRange}{" "}
               </p>
             </div>
           </motion.div>

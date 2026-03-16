@@ -12,7 +12,6 @@ export default async function TpoicPage({
   const decodedSlug = decodeURIComponent(slug);
 
   const { data: articles } = await getArticles({ topics: [decodedSlug] });
-  console.log("Decoded slug: ", decodedSlug, "Articles: ", articles);
 
   return (
     <div>

@@ -24,6 +24,7 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import LiveClock from "../home/live-clock";
 import { useRouter, usePathname } from "next/navigation";
+import { Category } from "@/lib/types";
 
 const navigationItems = [
   { key: "home", href: "/" },
@@ -31,7 +32,7 @@ const navigationItems = [
   { key: "video", href: "/video" },
 ];
 
-export function Navbar() {
+export function Navbar({ categories }: { categories: Category[] }) {
   const t = useTranslations("navLinks");
   const tSearch = useTranslations("search");
   const tLive = useTranslations("live");
@@ -58,12 +59,13 @@ export function Navbar() {
         {/* Left Side: Logo and Desktop Navigation */}
         <div className="flex items-center gap-4 lg:gap-6 shrink-0">
           <Link href="/" className="flex items-center gap-2 shrink-0">
-            <Image priority
+            <Image
+              priority
               src="/images/logo.png"
               alt="Prime Tv"
               height={40}
-              width={80}
-              className="w-20 md:w-25 h-auto"
+              width={65}
+              className="w-auto h-auto"
             />
           </Link>
 
@@ -133,7 +135,10 @@ export function Navbar() {
               </SheetTrigger>
               <SheetContent side="right" className="w-75 sm:w-100 p-0">
                 <LiveClock />
-                <CategorySidebar onClose={() => setIsSheetOpen(false)} />
+                <CategorySidebar
+                  onClose={() => setIsSheetOpen(false)}
+                  categories={categories}
+                />
               </SheetContent>
             </Sheet>
           </div>

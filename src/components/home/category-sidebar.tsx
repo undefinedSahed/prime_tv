@@ -4,12 +4,15 @@ import React, { useState } from "react";
 import { Camera, ChevronRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { getAllcategories } from "@/lib/api";
-import { useQuery } from "@tanstack/react-query";
 import { Category } from "@/lib/types";
-import CategorySkeleton from "./skeleton/acategory-skeleton";
 
-export default function CategorySidebar({ onClose }: { onClose?: () => void }) {
+export default function CategorySidebar({
+  onClose,
+  categories,
+}: {
+  onClose?: () => void;
+  categories: Category[];
+}) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleCategory = (index: number) => {
@@ -17,19 +20,6 @@ export default function CategorySidebar({ onClose }: { onClose?: () => void }) {
   };
 
   const tImage = useTranslations("image");
-
-  const {
-    data: categories,
-    isLoading,
-  } = useQuery({
-    queryKey: ["categories"],
-    queryFn: () => getAllcategories(),
-    select: (data) => data.data,
-  });
-
-  if (isLoading) {
-    return <CategorySkeleton />;
-  }
 
   return (
     <div className="w-full bg-background rounded-lg">
@@ -53,8 +43,9 @@ export default function CategorySidebar({ onClose }: { onClose?: () => void }) {
                 {category.subCategories.length > 0 && (
                   <ChevronRight
                     size={16}
-                    className={`text-gray-400 transition-transform ${openIndex === index ? "rotate-90" : ""
-                      }`}
+                    className={`text-gray-400 transition-transform ${
+                      openIndex === index ? "rotate-90" : ""
+                    }`}
                     onClick={() => toggleCategory(index)}
                   />
                 )}

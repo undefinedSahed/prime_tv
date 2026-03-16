@@ -256,6 +256,17 @@ export async function getTrendingTopics() {
   }
 }
 
+// Get market price
+export async function getMarketPrice() {
+  try {
+    const response = await api.get("/web/market-prices");
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching market price:", error);
+    throw error;
+  }
+}
+
 // Get articles
 export async function getArticles(query?: ArticleQueryParams) {
   try {

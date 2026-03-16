@@ -7,14 +7,27 @@ import { Footer } from "@/components/shared/footer";
 import { MobileBottomNav } from "@/components/shared/mobile-bottom-nav";
 import { usePathname } from "next/navigation";
 import { useLocale } from "next-intl";
-import HomeSidebar from "@/components/home/home-sidebar";
+import { Category } from "@/lib/types";
 
-export default function AppProvider({
-  children,
-}: {
+interface AppProviderProps {
   children: React.ReactNode;
-}) {
-  const queryClient = useMemo(() => new QueryClient(), []);
+  sidebar: React.ReactNode;
+  categories: Category[];
+}
+
+export default function AppProvider({ children, sidebar, categories }: AppProviderProps) {
+  const queryClient = useMemo(
+    () =>
+      new QueryClient({
+        defaultOptions: {
+          queries: {
+            refetchOnWindowFocus: false,
+            retry: 1,
+          },
+        },
+      }),
+    [],
+  );
 
   const pathname = usePathname();
   const currentLocale = useLocale();
@@ -26,27 +39,31 @@ export default function AppProvider({
 
   const isSearchPage = pathname.includes("/search");
   const isAuthPage = hideNavAndFooter.includes(pathname);
-  const showSidebar = !isAuthPage && !isSearchPage;
+
+  const showSidebarLayout = !isAuthPage && !isSearchPage;
 
   return (
     <QueryClientProvider client={queryClient}>
-      {!isAuthPage && <Navbar />}
-      <div className="md:pb-0 pb-16">
-        {showSidebar ? (
+      {!isAuthPage && <Navbar categories={categories}/>}
+
+      <div className={`${!isAuthPage ? "md:pb-0 pb-16" : ""}`}>
+        {showSidebarLayout ? (
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-12 lg:gap-8 xl:gap-12 lg:py-8">
-              <div className="hidden lg:block lg:col-span-3 xl:col-span-2 sticky top-[100px] h-fit">
-                <HomeSidebar />
+              <div className="hidden lg:block lg:col-span-3 xl:col-span-2 sticky top-25 h-fit">
+                {sidebar}
               </div>
+
               <div className="col-span-12 lg:col-span-9 xl:col-span-10">
                 {children}
               </div>
             </div>
           </div>
         ) : (
-          children
+          <main>{children}</main>
         )}
       </div>
+
       {!isAuthPage && (
         <>
           <Footer />

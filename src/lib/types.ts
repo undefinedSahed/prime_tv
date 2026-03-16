@@ -71,3 +71,10 @@ export interface CategoryQueryParam {
   searchTerm?: string;
   isActive?: boolean;
 }
+
+export interface MarketPrice {
+  title: string;
+  titleBn: string;
+  priceRange: string;
+  coverImage: string;
+}
