@@ -1,5 +1,3 @@
-
-import Image from "next/image";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -18,12 +16,11 @@ export default function NotFoundContent() {
 
           <div className="relative z-10 flex flex-col items-center gap-12 max-w-200">
             <div className="relative h-62.5 w-62.5 md:h-75 md:w-75">
-              <Image
+              <img
                 src="/images/panda.png"
                 alt="Fuzzy rainbow monster reading a book"
-                fill
                 className="object-contain"
-                priority
+                loading="lazy"
               />
             </div>
 
@@ -53,5 +50,5 @@ export default function NotFoundContent() {
         </div>
       </div>
     </div>
-  )
+  );
 }

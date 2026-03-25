@@ -28,7 +28,7 @@ export default async function VideoPage() {
           />
         </div>
 
-        {/* Right Sidebar: Image Stories (4 columns on large screens) */}
+        {/* Right Sidebar: img Stories (4 columns on large screens) */}
         <div className="lg:col-span-4">
           <VideoSidebar images={images} t={t} />
         </div>

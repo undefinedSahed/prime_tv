@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
+
 import Link from "next/link";
 import { MarketPrice } from "@/lib/types";
 
@@ -51,15 +51,14 @@ export default function BazarPricing({
             transition={{ duration: 0.5 }}
             className="flex items-center gap-3"
           >
-            {/* Image Section */}
+            {/* img Section */}
             <div className="relative w-24 aspect-square rounded-xl shrink-0 overflow-hidden">
-              <Image
-                priority
+              <img
+                
                 src={
                   currentItem.coverImage || "https://placehold.co/100x100/png"
                 }
                 alt={currentItem.title}
-                fill
                 className="object-cover rounded-xl p-2"
               />
             </div>

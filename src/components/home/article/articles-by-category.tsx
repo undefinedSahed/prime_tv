@@ -1,5 +1,5 @@
 import { ArrowRight, Timer } from "lucide-react";
-import Image from "next/image";
+
 import Link from "next/link";
 import { Article, Category } from "@/lib/types";
 import { getArticles } from "@/lib/api";
@@ -47,10 +47,9 @@ export default async function CategorySection({
       {featuredArticle && (
         <div className="group cursor-pointer">
           <div className="relative aspect-16/10 w-full overflow-hidden rounded-xl mb-3">
-            <Image priority
+            <img 
               src={featuredArticle.coverImage}
               alt={featuredArticle.title}
-              fill
               className="object-cover transition-transform duration-300 group-hover:scale-105"
             />
           </div>

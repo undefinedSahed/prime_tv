@@ -1,5 +1,5 @@
 import { Article } from "@/lib/types";
-import Image from "next/image";
+
 import React from "react";
 import { Timer } from "lucide-react";
 import Link from "next/link";
@@ -22,7 +22,7 @@ export default function MainArticle({
         href={`/news/${firstArticle.slug}`}
         className="md:col-span-5 col-span-7 bg-background p-3 rounded-lg md:space-y-3"
       >
-        <Image priority
+        <img 
           src={firstArticle.coverImage}
           alt={firstArticle.title}
           height={1000}
@@ -53,7 +53,7 @@ export default function MainArticle({
               key={article.id}
               className="p-3 bg-background rounded-md lg:space-y-2"
             >
-              <Image priority
+              <img 
                 src={article.coverImage}
                 alt={article.title}
                 height={1000}

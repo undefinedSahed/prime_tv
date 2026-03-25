@@ -1,5 +1,5 @@
 import { Article } from "@/lib/types";
-import Image from "next/image";
+
 import React from "react";
 import SocialShare from "../shared/social-share";
 
@@ -9,7 +9,7 @@ export default function NewsDetails({ article }: { article: Article }) {
       {/* print header - Added flex and items-center for vertical alignment */}
       <div className="hidden print:flex print-header items-center justify-between border-b-2 border-red-600 pb-2 mb-3">
         <div className="flex items-center">
-          <Image priority
+          <img
             width={200}
             height={200}
             src="/images/logo.png"
@@ -54,11 +54,9 @@ export default function NewsDetails({ article }: { article: Article }) {
 
         {/* Removed print:h-75 and used relative container with aspect ratio for better print support */}
         <div className="relative w-full aspect-video rounded-lg overflow-hidden mb-4 print:max-h-87.5">
-          <Image
+          <img
             src={article.coverImage}
             alt={article.title}
-            fill
-            priority
             className="object-cover"
           />
         </div>

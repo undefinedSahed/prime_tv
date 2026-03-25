@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
+
 import { Play } from "lucide-react";
 
 // Types for the individual article
@@ -34,10 +34,9 @@ export default function VideoArticleCard({ article }: VideoCardProps) {
       <div className="flex flex-col gap-3">
         {/* Thumbnail Container */}
         <div className="relative aspect-video w-full overflow-hidden rounded-lg shadow-sm">
-          <Image priority
+          <img 
             src={thumbnail}
             alt={article.title}
-            fill
             className="object-cover transition-transform duration-500 group-hover:scale-110"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />

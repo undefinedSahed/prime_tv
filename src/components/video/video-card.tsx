@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
+
 import { Play, Timer } from "lucide-react";
 import { VideoArticle } from "@/lib/api";
 import { useLocale } from "next-intl";
@@ -36,10 +36,9 @@ export default function VideoCard({
         <div
           className={`relative aspect-video w-full overflow-hidden rounded-2xl shadow-sm border border-gray-100 ${isFeatured ? "ring-1 ring-gray-100 shadow-md" : ""}`}
         >
-          <Image priority
+          <img 
             src={thumbnail}
             alt={video.title}
-            fill
             className="object-cover transition-transform duration-700 group-hover:scale-105"
             sizes={
               isFeatured

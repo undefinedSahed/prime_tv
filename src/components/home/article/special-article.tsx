@@ -2,7 +2,7 @@ import { Article } from "@/lib/types";
 import { formatRelativeTime } from "@/utils/date-formatter";
 import { ArrowRight, Timer } from "lucide-react";
 import { getLocale, getTranslations } from "next-intl/server";
-import Image from "next/image";
+
 import Link from "next/link";
 import React from "react";
 
@@ -39,7 +39,7 @@ export default async function SpecialArticle({
           href={`/news/${firstSpecialArticle.slug}`}
           className="bg-primary/80 rounded-md"
         >
-          <Image priority
+          <img 
             src={firstSpecialArticle.coverImage}
             alt={firstSpecialArticle.title}
             height={1000}
@@ -71,7 +71,7 @@ export default async function SpecialArticle({
               className="group grid-cols-12 grid items-center gap-2"
             >
               <div className="col-span-3">
-                <Image priority
+                <img 
                   src={article.coverImage}
                   alt={article.title}
                   height={1000}

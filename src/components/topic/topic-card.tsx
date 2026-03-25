@@ -1,7 +1,7 @@
 import { Article } from "@/lib/types";
 import { formatRelativeTime } from "@/utils/date-formatter";
 import { getLocale } from "next-intl/server";
-import Image from "next/image";
+
 import Link from "next/link";
 import React from "react";
 
@@ -14,11 +14,9 @@ export default async function TopicCard({ article }: NewsCardProps) {
   return (
     <Link href={`/news/${article.slug}`} className="group cursor-pointer">
       <div className="relative aspect-16/10 overflow-hidden rounded-2xl mb-3">
-        <Image 
+        <img
           src={article.coverImage}
           alt={article.title}
-          priority
-          fill
           className="object-cover transition-transform duration-300 group-hover:scale-105"
         />
 
