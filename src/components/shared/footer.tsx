@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
+
 import { Facebook, Instagram, Youtube } from "lucide-react";
 
 export function Footer() {
@@ -14,7 +14,7 @@ export function Footer() {
           {/* Section 1: Logo */}
           <div className="lg:col-span-3 flex justify-center lg:justify-start">
             <Link href="/" className="block">
-              <Image priority
+              <img 
                 src="/images/logo.png"
                 alt="Ekhon TV"
                 height={80}

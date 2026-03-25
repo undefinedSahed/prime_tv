@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
+
 import { Play } from "lucide-react";
 
 export default function LiveUpdate() {
@@ -12,12 +12,11 @@ export default function LiveUpdate() {
 
   return (
     <div className="border-2 border-red-500 rounded-2xl overflow-hidden bg-white p-1">
-      {/* Top Image Section */}
+      {/* Top img Section */}
       <div className="relative w-full aspect-1/0.5 rounded-t-xl overflow-hidden">
-        <Image priority
+        <img 
           src="https://placehold.co/300x150/png"
           alt="Live Update"
-          fill
           className="object-cover"
         />
 

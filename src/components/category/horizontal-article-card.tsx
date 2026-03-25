@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Article } from "@/lib/types";
 import { Timer } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
@@ -19,12 +18,12 @@ export default function HorizontalArticleCard({
       className="group block w-full last:border-0 py-3 transition-all hover:bg-gray-50/50 rounded-xl"
     >
       <div className="flex flex-col sm:flex-row gap-4 md:gap-6 items-start">
-        {/* Image Container */}
-        <div className="relative w-full sm:w-[240px] md:w-[280px] lg:w-[320px] aspect-video sm:aspect-16/10 shrink-0 overflow-hidden rounded-xl shadow-sm">
-          <Image priority
+        {/* img Container */}
+        <div className="relative w-full sm:w-60 md:w-70 lg:w-[320px] aspect-video sm:aspect-16/10 shrink-0 overflow-hidden rounded-xl shadow-sm">
+          <img
             src={article.coverImage}
             alt={article.title}
-            fill
+            loading="lazy"
             className="object-cover transition-transform duration-700 group-hover:scale-110"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 280px, 320px"
           />

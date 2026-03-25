@@ -39,7 +39,7 @@ export default function VideoAndImage({
           </div>
         </div>
 
-        {/* Image Part */}
+        {/* img Part */}
         <div className="w-full">
           <div className="flex justify-between items-center border-l-4 border-primary pl-3 my-3">
             <h2 className="text-2xl font-bold text-gray-800">

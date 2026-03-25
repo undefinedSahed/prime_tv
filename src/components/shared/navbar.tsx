@@ -20,7 +20,7 @@ import CategorySidebar from "../home/category-sidebar";
 import { useTranslations } from "next-intl";
 import LanguageSwitcher from "./language-switcher";
 import { Input } from "../ui/input";
-import Image from "next/image";
+
 import { cn } from "@/lib/utils";
 import LiveClock from "../home/live-clock";
 import { useRouter, usePathname } from "next/navigation";
@@ -59,8 +59,8 @@ export function Navbar({ categories }: { categories: Category[] }) {
         {/* Left Side: Logo and Desktop Navigation */}
         <div className="flex items-center gap-4 lg:gap-6 shrink-0">
           <Link href="/" className="flex items-center gap-2 shrink-0">
-            <Image
-              priority
+            <img
+              
               src="/images/logo.png"
               alt="Prime Tv"
               height={100}

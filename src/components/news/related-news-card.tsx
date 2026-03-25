@@ -2,7 +2,7 @@ import { Article } from "@/lib/types";
 import React from "react";
 import { Timer } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
+
 import { useLocale } from "next-intl";
 import { formatRelativeTime } from "@/utils/date-formatter";
 
@@ -16,7 +16,7 @@ export default function RelatedNewsCard({ article }: { article: Article }) {
         className="border-t border-gray-200 py-3 group grid grid-cols-5 gap-2 items-center"
       >
         <div className="col-span-2">
-          <Image priority
+          <img 
             src={article.coverImage}
             alt={article.title}
             width={400}

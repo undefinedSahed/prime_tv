@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
+
 import { Images } from "lucide-react";
 import { imageArticle } from "@/lib/api";
 
@@ -21,17 +21,16 @@ export default function ImageGalleryCard({ article }: ImageGalleryCardProps) {
           <div className="absolute top-0 left-4 right-4 h-full bg-gray-200 rounded-lg -translate-y-1 shadow-sm" />
           <div className="absolute top-0 left-2 right-2 h-full bg-gray-300 rounded-lg -translate-y-0.5 shadow-sm" />
 
-          {/* Main Image Container */}
+          {/* Main img Container */}
           <div className="relative aspect-video w-full overflow-hidden rounded-xl shadow-md border border-gray-100">
-            <Image priority
+            <img 
               src={mainImage}
               alt={article.title}
-              fill
               className="object-cover transition-transform duration-500 group-hover:scale-105"
               sizes="(max-width: 768px) 100vw, 33vw"
             />
 
-            {/* Top Right Badge (Image Count) */}
+            {/* Top Right Badge (img Count) */}
             <div className="absolute top-3 right-3 flex items-center gap-1.5 bg-primary text-gray-900 px-2 py-1 rounded-md shadow-lg">
               <Images size={12} className="text-primary-foreground" />
               <span className="text-xs text-primary-foreground font-bold uppercase">
