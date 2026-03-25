@@ -6,8 +6,8 @@ on:
       - staging
 
 env:
-  VERCEL_ORG_ID: team_iEr24X0GZJTAuKDkUG6irzgH
-  VERCEL_PROJECT_ID: prj_JLLKo8W36uwgiPp0p0erTmUgGYvJ
+  VERCEL_ORG_ID: team_McYndjJ6hLO3nxwmIVqObZB2
+  VERCEL_PROJECT_ID: prj_TZ1jzPQGEcnBezjP4EuxWDJSkwly
 
 jobs:
   Vercel-deploy:
