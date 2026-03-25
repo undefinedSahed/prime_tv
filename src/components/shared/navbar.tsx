@@ -63,9 +63,9 @@ export function Navbar({ categories }: { categories: Category[] }) {
               priority
               src="/images/logo.png"
               alt="Prime Tv"
-              height={40}
-              width={65}
-              className="w-auto h-auto"
+              height={100}
+              width={300}
+              className="w-20 lg:w-32 h-8 lg:h-12 object-contain"
             />
           </Link>
 

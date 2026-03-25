@@ -11,8 +11,7 @@
   },
   "lint-staged": {
     "*.{js,ts,tsx}": [
-      "next lint --fix --file",
-      "prettier --write"
+      "next lint --fix --file"
     ]
   },
   "dependencies": {
