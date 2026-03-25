@@ -206,16 +206,18 @@
 
 @layer utilities {
   @keyframes shadow-blink {
-    0%,
-    100% {
-      box-shadow: 0 0 0px 10px rgba(234, 171, 171, 0.6);
+    0% {
+      box-shadow: 0 0 0 0 rgba(244, 67, 54, 0.5);
     }
     50% {
-      box-shadow: 0 0 0px 0px rgba(234, 171, 171, 0.6);
+      box-shadow: 0 0 0 10px rgba(244, 67, 54, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(244, 67, 54, 0);
     }
   }
 
   .animate-shadow-blink {
-    animation: shadow-blink 0.8s infinite;
+    animation: shadow-blink 1s infinite;
   }
 }
