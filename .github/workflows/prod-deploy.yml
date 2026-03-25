@@ -1,0 +1,30 @@
+name: Fibonacci Bookshop Panel Production
+
+on:
+  push:
+    branches:
+      - master
+jobs:
+  Vercel-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # ✅ IMPORTANT: Node 22 setup
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'yarn'
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel@43.3.0
+
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=production --token=QH57lPllNB704BLYEiZD6yIz
+
+      - name: Build Project Artifacts
+        run: vercel build --prod --token=QH57lPllNB704BLYEiZD6yIz
+
+      - name: Deploy Project Artifacts to Vercel
+        run: vercel deploy --prebuilt --prod --token=QH57lPllNB704BLYEiZD6yIz

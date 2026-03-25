@@ -1,0 +1,33 @@
+name: Staging Deployment
+
+on:
+  push:
+    branches:
+      - staging
+
+env:
+  VERCEL_ORG_ID: team_iEr24X0GZJTAuKDkUG6irzgH
+  VERCEL_PROJECT_ID: prj_JLLKo8W36uwgiPp0p0erTmUgGYvJ
+
+jobs:
+  Vercel-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel@43.3.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=production --token=vcp_7twqgs9ebrbiGh9baUhNkOVdP6utQFJrcmWfKE3QzdjmEIypDF25SmGV
+
+      - name: Build Project Artifacts
+        run: vercel build --prod --token=vcp_7twqgs9ebrbiGh9baUhNkOVdP6utQFJrcmWfKE3QzdjmEIypDF25SmGV
+
+      - name: Deploy Project Artifacts to Vercel
+        run: vercel deploy --prebuilt --prod --token=vcp_7twqgs9ebrbiGh9baUhNkOVdP6utQFJrcmWfKE3QzdjmEIypDF25SmGV
