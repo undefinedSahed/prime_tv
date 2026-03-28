@@ -4,10 +4,10 @@ import Link from "next/link";
 import { Timer } from "lucide-react";
 import { useLocale } from "next-intl";
 import { formatRelativeTime } from "@/utils/date-formatter";
-import { Gallery } from "@/lib/types";
+import { imageArticle } from "@/lib/api";
 
 interface GallerycardProps {
-  gallery: Gallery;
+  gallery: imageArticle;
   variant?: "default" | "small" | "featured";
   showdescription?: boolean;
 }

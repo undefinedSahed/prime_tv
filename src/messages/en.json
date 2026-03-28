@@ -67,7 +67,8 @@
     "button": "Return to Base Camp"
   },
   "gallery":  {
-    "title": "Today's Gallery"
+    "title": "Today's Gallery",
+    "more": "More Images"
   },
   "footer": {
     "brandName": "Prime Tv",

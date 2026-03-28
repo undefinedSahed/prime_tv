@@ -1,13 +1,13 @@
 import GalleryList from "@/components/gallery/gallery-list";
 import ArticleSidebar from "@/components/home/article/article-sidebar";
-import { getGallery } from "@/lib/api";
+import { getImages } from "@/lib/api";
 import { getTranslations } from "next-intl/server";
 import React from "react";
 
 export default async function GalleryPage() {
   const t = await getTranslations("gallery");
 
-  const galleryResponse = await getGallery({ page: 1, limit: 10 });
+  const galleryResponse = await getImages();
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">

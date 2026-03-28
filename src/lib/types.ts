@@ -78,15 +78,3 @@ export interface MarketPrice {
   priceRange: string;
   coverImage: string;
 }
-
-export interface Gallery {
-  id: string;
-  title: string;
-  slug: string;
-  createdAt: string;
-  description: string;
-  images: {
-    title: string;
-    url: string;
-  }[];
-}
