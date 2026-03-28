@@ -1,15 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
-import { getGallery } from "@/lib/api";
+import { getImages, imageArticle } from "@/lib/api";
 import { Button } from "@/components/ui/button";
 import { Loader2, ChevronDown } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { Gallery } from "@/lib/types";
 import GalleryCard from "./gallery-card";
 
 interface GalleryListProps {
-  initialGallery: Gallery[];
+  initialGallery: imageArticle[];
   initialMeta: {
     total: number;
     page: number;
@@ -27,7 +26,7 @@ export default function GalleryList({
   const featuredGallery = initialGallery[0];
   const initialsGalleryImages = initialGallery.slice(1);
 
-  const [gridGallery, setGridGallery] = useState<Gallery[]>(
+  const [gridGallery, setGridGallery] = useState<imageArticle[]>(
     initialsGalleryImages,
   );
   const [page, setPage] = useState(initialMeta.page);
@@ -43,17 +42,20 @@ export default function GalleryList({
     const nextPage = page + 1;
 
     try {
-      const response = await getGallery({
+      const response = await getImages({
         page: nextPage,
         limit: initialMeta.limit,
       });
-      const newVideos = response?.data || [];
 
-      setGridGallery((prev) => [...prev, ...newVideos]);
+      const newImages = response?.data || [];
+
+      setGridGallery((prev) => [...prev, ...newImages]);
+
       setPage(nextPage);
+
       setHasMore(nextPage < response.meta.totalPages);
     } catch (error) {
-      console.error("Failed to load more videos:", error);
+      console.error("Failed to load more images:", error);
     } finally {
       setLoading(false);
     }
@@ -63,12 +65,15 @@ export default function GalleryList({
     <div className="flex flex-col gap-10">
       {featuredGallery && (
         <div className="w-full bg-background p-3 rounded-xl">
-          <GalleryCard showdescription gallery={featuredGallery} variant="featured" />
+          <GalleryCard
+            showdescription
+            gallery={featuredGallery}
+            variant="featured"
+          />
         </div>
       )}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
-
         {gridGallery.map((gallery) => (
           <GalleryCard key={gallery.id} gallery={gallery} />
         ))}

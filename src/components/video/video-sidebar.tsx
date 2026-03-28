@@ -9,7 +9,7 @@ interface ImageStorySidebarProps {
   t: (key: string) => string;
 }
 
-export default function ImageStorySidebar({ images, t }: ImageStorySidebarProps) {
+export default function VideoSidebar({ images, t }: ImageStorySidebarProps) {
   return (
     <aside className="flex flex-col gap-8">
       <div>

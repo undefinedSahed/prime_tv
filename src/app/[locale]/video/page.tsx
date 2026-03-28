@@ -28,9 +28,8 @@ export default async function VideoPage() {
         </div>
 
         <div className="lg:col-span-4">
-          <VideoSidebar images={images} t={t} />
+          <VideoSidebar images={images.data} t={t} />
         </div>
-
       </div>
     </div>
   );

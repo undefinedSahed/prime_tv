@@ -13,7 +13,7 @@ export default function ImageGalleryCard({ article }: ImageGalleryCardProps) {
   const mainImage = article.images?.[0]?.url || "/placeholder.jpg";
 
   return (
-    <Link href={`/gallery/${article.id}`} className="group block w-full">
+    <Link href={`/gallery/${article.slug}`} className="group block w-full">
       <div className="flex flex-col gap-3">
         {/* Stacked Effect Container */}
         <div className="relative pt-2 px-1">

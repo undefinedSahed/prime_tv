@@ -52,7 +52,7 @@ const SocialShare = ({ title }: SocialShareProps) => {
   if (!origin) return <div className="h-15 mb-8" />;
 
   return (
-    <div className="flex items-center gap-4 mb-8 py-4 border-y border-gray-100 print:hidden">
+    <div className="flex items-center gap-4 mb-4 py-4 border-y border-gray-100 print:hidden">
       {/* Facebook - Light Blue Bg */}
       <button
         onClick={() => openPopup(shareLinks.facebook)}

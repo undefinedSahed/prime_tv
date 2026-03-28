@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ArticleQueryParams, CategoryQueryParam, Gallery } from "./types";
+import { ArticleQueryParams, CategoryQueryParam } from "./types";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -24,6 +24,9 @@ export interface VideoArticle {
 export interface imageArticle {
   id: number;
   title: string;
+  slug: string;
+  createdAt: string;
+  description: string;
   images: {
     id: number;
     url: string;
@@ -128,6 +131,9 @@ export const imageArticles: imageArticle[] = [
   {
     id: 1,
     title: "মধ্যপ্রাচ্যের উত্তেজনায় বিশ্ববাজারে তেলের দামের প্রভাব",
+    description: "মধ্যপ্রাচ্যের উত্তেজনায় বিশ্ববাজারে তেলের দামের প্রভাব",
+    slug: "middle-east-oil-price",
+    createdAt: "2024-03-14T12:00:00Z",
     images: [
       {
         id: 1,
@@ -149,6 +155,9 @@ export const imageArticles: imageArticle[] = [
   {
     id: 2,
     title: "বন্দর এলাকায় বাড়ছে কনটেইনার জাহাজের চাপ",
+    description: "বন্দর এলাকায় বাড়ছে কনটেইনার জাহাজের চাপ",
+    slug: "container-crane",
+    createdAt: "2024-03-14T14:00:00Z",
     images: [
       {
         id: 1,
@@ -170,6 +179,9 @@ export const imageArticles: imageArticle[] = [
   {
     id: 3,
     title: "সমুদ্রপথে বাণিজ্য: বৈশ্বিক সরবরাহ ব্যবস্থার নতুন চ্যালেঞ্জ",
+    description: "সমুদ্রপথে বাণিজ্য: বৈশ্বিক সরবরাহ ব্যবস্থার নতুন চ্যালেঞ্জ",
+    slug: "ocean-transport",
+    createdAt: "2024-03-14T16:00:00Z",
     images: [
       {
         id: 1,
@@ -191,6 +203,9 @@ export const imageArticles: imageArticle[] = [
   {
     id: 4,
     title: "সমুদ্রপথে বাণিজ্য: বৈশ্বিক সরবরাহ ব্যবস্থার নতুন চ্যালেঞ্জ",
+    description: "সমুদ্রপথে বাণিজ্য: বৈশ্বিক সরবরাহ ব্যবস্থার নতুন চ্যালেঞ্জ",
+    slug: "ocean-transport",
+    createdAt: "2024-03-14T16:00:00Z",
     images: [
       {
         id: 1,
@@ -212,6 +227,9 @@ export const imageArticles: imageArticle[] = [
   {
     id: 5,
     title: "সমুদ্রপথে বাণিজ্য: বৈশ্বিক সরবরাহ ব্যবস্থার নতুন চ্যালেঞ্জ",
+    description: "সমুদ্রপথে বাণিজ্য: বৈশ্বিক সরবরাহ ব্যবস্থার নতুন চ্যালেঞ্জ",
+    slug: "ocean-transport",
+    createdAt: "2024-03-14T16:00:00Z",
     images: [
       {
         id: 1,
@@ -227,51 +245,6 @@ export const imageArticles: imageArticle[] = [
         id: 3,
         url: "/images/image-article1.jpg",
         caption: "তেল পরিবহনে ব্যবহৃত ট্যাংকার",
-      },
-    ],
-  },
-];
-
-export const galleryData: Gallery[] = [
-  {
-    id: "1",
-    title: "সমুদ্রপথে বাণিজ্য: বৈশ্বিক সরবরাহ ব্যবস্থার নতুন চ্যালেঞ্জ",
-    description: "সমুদ্রপথে বাণিজ্য: বৈশ্বিক সরবরাহ ব্যবস্থার নতুন চ্যালেঞ্জ",
-    slug: "সমুদ্রপথে-বাণিজ্য-বৈশ্বিক-সরবরাহ-ব্যবস্থার-নতুন-চ্যালেঞ্জ",
-    createdAt: "2023-09-01",
-    images: [
-      {
-        title: "সমুদ্রে চলমান বড় তেলবাহী জাহাজ",
-        url: "/images/image-article1.jpg",
-      },
-      {
-        title: "বন্দরে নোঙর করা জাহাজ",
-        url: "/images/image-article1.jpg",
-      },
-      {
-        title: "তেল পরিবহনে ব্যবহৃত ট্যাংকার",
-        url: "/images/image-article1.jpg",
-      },
-    ],
-  },
-  {
-    id: "2",
-    title: "সমুদ্রপথে বাণিজ্য: বৈশ্বিক সরবরাহ ব্যবস্থার নতুন চ্যালেঞ্জ",
-    slug: "সমুদ্রপথে-বাণিজ্য-বৈশ্বিক-সরবরাহ-ব্যবস্থার-নতুন-চ্যালেঞ্জ",
-    description: "সমুদ্রপথে বাণিজ্য: বৈশ্বিক সরবরাহ ব্যবস্থার নতুন চ্যালেঞ্জ",
-    createdAt: "2023-09-01",
-    images: [
-      {
-        title: "সমুদ্রে চলমান বড় তেলবাহী জাহাজ",
-        url: "/images/image-article1.jpg",
-      },
-      {
-        title: "বন্দরে নোঙর করা জাহাজ",
-        url: "/images/image-article1.jpg",
-      },
-      {
-        title: "তেল পরিবহনে ব্যবহৃত ট্যাংকার",
-        url: "/images/image-article1.jpg",
       },
     ],
   },
@@ -371,35 +344,48 @@ export async function getVideos(query?: { page?: number; limit?: number }) {
 }
 
 // Get images
-export async function getImages() {
+export async function getImages(query?: { page?: number; limit?: number }) {
   try {
-    const response = imageArticles;
-    return response;
+    const page = query?.page || 1;
+    const limit = query?.limit || 10;
+
+    // Calculate the start and end index for slicing
+    const start = (page - 1) * limit;
+    const end = start + limit;
+
+    return {
+      data: imageArticles.slice(start, end),
+      meta: {
+        total: imageArticles.length,
+        page,
+        limit,
+        totalPages: Math.ceil(imageArticles.length / limit),
+      },
+    };
   } catch (error) {
     console.error("Error fetching images:", error);
     throw error;
   }
 }
 
-// Get gallery
-export async function getGallery(query?: { page?: number; limit?: number }) {
+// Get. single image
+export async function getSingleImage(slug: string) {
   try {
-    const page = query?.page || 1;
-    const limit = query?.limit || 10;
-    const start = (page - 1) * limit;
-    const end = start + limit;
-
-    return {
-      data: galleryData.slice(start, end),
-      meta: {
-        total: galleryData.length,
-        page,
-        limit,
-        totalPages: Math.ceil(galleryData.length / limit),
-      },
-    };
+    const response = imageArticles.find((image) => image.slug === slug);
+    return response;
   } catch (error) {
-    console.error("Error fetching videos:", error);
+    console.error("Error fetching single image:", error);
+    throw error;
+  }
+}
+
+// Get related images
+export async function getRelatedImages(id: number) {
+  try {
+    const response = imageArticles.filter((image) => image.id !== id);
+    return response;
+  } catch (error) {
+    console.error("Error fetching related images:", error);
     throw error;
   }
 }
