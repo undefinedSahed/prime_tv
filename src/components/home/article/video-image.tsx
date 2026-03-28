@@ -25,7 +25,7 @@ export default function VideoAndImage({
               {tArticle("video")}
             </h2>
             <Link
-              href="/pricing"
+              href="/video"
               className="flex items-center gap-1 text-primary cursor-pointer hover:underline"
             >
               <span className="text-sm font-medium">{tArticle("more")}</span>
@@ -46,7 +46,7 @@ export default function VideoAndImage({
               {tArticle("image")}
             </h2>
             <Link
-              href="/pricing"
+              href="/gallery"
               className="flex items-center gap-1 text-primary cursor-pointer hover:underline"
             >
               <span className="text-sm font-medium">{tArticle("more")}</span>
