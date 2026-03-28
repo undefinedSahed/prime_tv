@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ArticleQueryParams, CategoryQueryParam } from "./types";
+import { ArticleQueryParams, CategoryQueryParam, Gallery } from "./types";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -232,6 +232,51 @@ export const imageArticles: imageArticle[] = [
   },
 ];
 
+export const galleryData: Gallery[] = [
+  {
+    id: "1",
+    title: "সমুদ্রপথে বাণিজ্য: বৈশ্বিক সরবরাহ ব্যবস্থার নতুন চ্যালেঞ্জ",
+    description: "সমুদ্রপথে বাণিজ্য: বৈশ্বিক সরবরাহ ব্যবস্থার নতুন চ্যালেঞ্জ",
+    slug: "সমুদ্রপথে-বাণিজ্য-বৈশ্বিক-সরবরাহ-ব্যবস্থার-নতুন-চ্যালেঞ্জ",
+    createdAt: "2023-09-01",
+    images: [
+      {
+        title: "সমুদ্রে চলমান বড় তেলবাহী জাহাজ",
+        url: "/images/image-article1.jpg",
+      },
+      {
+        title: "বন্দরে নোঙর করা জাহাজ",
+        url: "/images/image-article1.jpg",
+      },
+      {
+        title: "তেল পরিবহনে ব্যবহৃত ট্যাংকার",
+        url: "/images/image-article1.jpg",
+      },
+    ],
+  },
+  {
+    id: "2",
+    title: "সমুদ্রপথে বাণিজ্য: বৈশ্বিক সরবরাহ ব্যবস্থার নতুন চ্যালেঞ্জ",
+    slug: "সমুদ্রপথে-বাণিজ্য-বৈশ্বিক-সরবরাহ-ব্যবস্থার-নতুন-চ্যালেঞ্জ",
+    description: "সমুদ্রপথে বাণিজ্য: বৈশ্বিক সরবরাহ ব্যবস্থার নতুন চ্যালেঞ্জ",
+    createdAt: "2023-09-01",
+    images: [
+      {
+        title: "সমুদ্রে চলমান বড় তেলবাহী জাহাজ",
+        url: "/images/image-article1.jpg",
+      },
+      {
+        title: "বন্দরে নোঙর করা জাহাজ",
+        url: "/images/image-article1.jpg",
+      },
+      {
+        title: "তেল পরিবহনে ব্যবহৃত ট্যাংকার",
+        url: "/images/image-article1.jpg",
+      },
+    ],
+  },
+];
+
 // Get categories
 export async function getAllcategories(query?: CategoryQueryParam) {
   try {
@@ -332,6 +377,29 @@ export async function getImages() {
     return response;
   } catch (error) {
     console.error("Error fetching images:", error);
+    throw error;
+  }
+}
+
+// Get gallery
+export async function getGallery(query?: { page?: number; limit?: number }) {
+  try {
+    const page = query?.page || 1;
+    const limit = query?.limit || 10;
+    const start = (page - 1) * limit;
+    const end = start + limit;
+
+    return {
+      data: galleryData.slice(start, end),
+      meta: {
+        total: galleryData.length,
+        page,
+        limit,
+        totalPages: Math.ceil(galleryData.length / limit),
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching videos:", error);
     throw error;
   }
 }

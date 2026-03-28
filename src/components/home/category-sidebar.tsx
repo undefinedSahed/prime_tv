@@ -69,7 +69,7 @@ export default function CategorySidebar({
           </div>
         ))}
 
-        <Link href={`/articles?type=image`} onClick={onClose}>
+        <Link href={`/gallery`} onClick={onClose}>
           <div className="flex items-center px-2.5 py-3 font-semibold hover:text-primary">
             <span>{tImage("lastLabel")}</span>
           </div>
