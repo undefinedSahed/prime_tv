@@ -5,11 +5,6 @@ import React from "react";
 import { Play } from "lucide-react";
 
 export default function LiveUpdate() {
-  const updates = [
-    "লেবাননে বাস্তুচ্যুত ৭ লাখ ৫০ হাজারের বেশি: জাতিসংঘ",
-    "তেলের দামের উল্লম্ফন ঠেকাতে মজুত ব্যবহারের ইঙ্গিত যুক্তরাষ্ট্রের",
-  ];
-
   return (
     <div className="border-2 border-red-500 rounded-2xl overflow-hidden bg-white p-1">
       {/* Top img Section */}
@@ -59,8 +54,6 @@ export default function LiveUpdate() {
           </div>
         ))}
       </div> */}
-
-      
 
       {/* Upcoming Feature Section */}
       <div className="relative min-h-45 flex flex-col">
