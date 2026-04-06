@@ -55,10 +55,10 @@ export default function BazarPricing({
             <div className="relative w-24 aspect-square rounded-xl shrink-0 overflow-hidden">
               <img
                 src={
-                  currentItem.image || "https://placehold.co/100x100/png"
+                  currentItem.image
                 }
                 alt={currentItem.title}
-                className="object-cover rounded-xl p-2"
+                className="object-cover w-full aspect-square rounded-xl p-2"
               />
             </div>
 

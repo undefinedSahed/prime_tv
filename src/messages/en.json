@@ -66,8 +66,9 @@
     "description": "Uh oh! Our little cartoon friends might have accidentally scribbled out this address. We can't seem to find the page you're looking for.",
     "button": "Return to Base Camp"
   },
-  "marketPrice": {
-    "title": "Market Prices"
+  "gallery":  {
+    "title": "Today's Gallery",
+    "more": "More Images"
   },
   "footer": {
     "brandName": "Prime Tv",

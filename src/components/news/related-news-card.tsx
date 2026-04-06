@@ -16,7 +16,7 @@ export default function RelatedNewsCard({ article }: { article: Article }) {
         className="border-t border-gray-200 py-3 group grid grid-cols-5 gap-2 items-center"
       >
         <div className="col-span-2">
-          <img 
+          <img
             src={article.coverImage}
             alt={article.title}
             width={400}

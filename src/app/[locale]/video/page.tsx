@@ -12,7 +12,6 @@ export default async function VideoPage() {
   return (
     <div className="">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
-        {/* Main Content: Videos (8 columns on large screens) */}
         <div className="lg:col-span-8 flex flex-col">
           <div className="pb-4">
             <div className="flex items-center gap-3 border-l-4 border-primary pl-4">
@@ -28,11 +27,9 @@ export default async function VideoPage() {
           />
         </div>
 
-        {/* Right Sidebar: img Stories (4 columns on large screens) */}
         <div className="lg:col-span-4">
-          <VideoSidebar images={images} t={t} />
+          <VideoSidebar images={images.data} t={t} />
         </div>
-
       </div>
     </div>
   );

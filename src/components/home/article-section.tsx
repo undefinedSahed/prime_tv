@@ -49,7 +49,7 @@ export default async function ArticleSection() {
       <CategoryWiseArticles fourCategories={firstFourCategories} />
       <VideoAndImage
         videoArticles={videoAticles.data.slice(0, 4)}
-        imageArticles={imageArticles.slice(0, 4)}
+        imageArticles={imageArticles.data.slice(0, 4)}
       />
       <CategoryWiseArticles fourCategories={lastFourCategories} />
     </section>
